@@ -3,74 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Informe Ejecutivo — Investigación de Mercados y Pronósticos | Paleta de Colores</title>
+  <title>Informe Ejecutivo — Investigación de Mercados | Paleta de Colores</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --navy: #0b1f33;
-      --navy-2: #122c46;
-      --slate: #334e68;
-      --muted: #627d98;
-      --bg: #f4f7fa;
-      --card: #ffffff;
-      --border: #d9e2ec;
-      --violet: #7c3aed;
-      --blue: #2563eb;
-      --emerald: #059669;
-      --amber: #d97706;
-      --rose: #dc2626;
-      --radius: 14px;
-      --shadow: 0 8px 24px rgba(11, 31, 51, 0.07);
+      --navy: #0b1f33; --navy-2: #122c46; --slate: #334e68; --muted: #627d98;
+      --bg: #f4f7fa; --card: #ffffff; --border: #d9e2ec;
+      --violet: #7c3aed; --blue: #2563eb; --emerald: #059669; --amber: #d97706; --rose: #dc2626;
+      --radius: 14px; --shadow: 0 8px 24px rgba(11, 31, 51, 0.07);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: #102a43;
-      line-height: 1.55;
-    }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: #102a43; line-height: 1.55; }
 
-    /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(11, 31, 51, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 0.75rem 1.5rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
+      position: sticky; top: 0; z-index: 100; background: rgba(11, 31, 51, 0.96);
+      backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
     }
-    .nav-brand { color: #fff; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.3px; }
+    .nav-brand { color: #fff; font-weight: 700; font-size: 0.95rem; }
     .nav-brand span { color: #a78bfa; }
     .nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .nav-links a {
-      color: #cbd5e1; text-decoration: none; font-size: 0.82rem; font-weight: 600;
-      padding: 0.38rem 0.72rem; border-radius: 8px; transition: 0.2s;
-    }
+    .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.82rem; font-weight: 600; padding: 0.38rem 0.72rem; border-radius: 8px; transition: 0.2s; }
     .nav-links a:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .nav-links a.nav-dash {
-      background: linear-gradient(135deg, #7c3aed, #2563eb); color: #fff;
-    }
+    .nav-links a.nav-dash { background: linear-gradient(135deg, #7c3aed, #2563eb); color: #fff; }
 
-    /* HERO */
-    header.hero {
-      background: linear-gradient(135deg, #0b1f33 0%, #163759 60%, #1e293b 100%);
-      color: #fff; padding: 3.5rem 1.5rem 3rem;
-    }
+    header.hero { background: linear-gradient(135deg, #0b1f33 0%, #163759 60%, #1e293b 100%); color: #fff; padding: 3.2rem 1.5rem 2.8rem; }
     .container { max-width: 1220px; margin: 0 auto; }
     .badge {
       display: inline-block; background: rgba(167,139,250,0.18); color: #ddd6fe;
       border: 1px solid rgba(167,139,250,0.35); padding: 0.3rem 0.8rem;
-      border-radius: 999px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
-      text-transform: uppercase; margin-bottom: 1rem;
+      border-radius: 999px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;
     }
-    .hero h1 { font-size: clamp(1.75rem, 3.2vw, 2.55rem); line-height: 1.2; margin-bottom: 1rem; max-width: 900px; }
-    .hero p { color: #cbd5e1; max-width: 840px; font-size: 1rem; margin-bottom: 1.5rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.6rem; }
+    .hero h1 { font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.2; margin-bottom: 0.9rem; max-width: 900px; }
+    .hero p { color: #cbd5e1; max-width: 840px; font-size: 0.98rem; margin-bottom: 1.4rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
     .btn {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      padding: 0.65rem 1.2rem; border-radius: 10px; font-weight: 600; font-size: 0.88rem;
-      text-decoration: none; cursor: pointer; border: none; transition: 0.2s;
+      display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.62rem 1.15rem;
+      border-radius: 10px; font-weight: 600; font-size: 0.88rem; text-decoration: none; cursor: pointer; border: none; transition: 0.2s;
     }
     .btn-primary { background: #7c3aed; color: #fff; }
     .btn-primary:hover { background: #6d28d9; }
@@ -80,226 +50,154 @@
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem;
       padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.84rem; color: #cbd5e1;
     }
-    .meta-strip strong { color: #fff; display: block; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.4px; }
+    .meta-strip strong { color: #fff; display: block; font-size: 0.75rem; text-transform: uppercase; }
 
-    /* SECTIONS */
-    main { padding: 2.2rem 1.5rem 3rem; }
+    main { padding: 2rem 1.5rem 3rem; }
     section.block {
       background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-      box-shadow: var(--shadow); padding: 2rem; margin-bottom: 2rem;
+      box-shadow: var(--shadow); padding: 1.9rem; margin-bottom: 1.9rem;
     }
     .sec-head {
       display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap;
-      gap: 0.75rem; border-bottom: 2px solid #edf2f7; padding-bottom: 0.9rem; margin-bottom: 1.5rem;
+      gap: 0.75rem; border-bottom: 2px solid #edf2f7; padding-bottom: 0.85rem; margin-bottom: 1.4rem;
     }
-    .sec-head h2 { font-size: 1.42rem; color: var(--navy); }
-    .sec-tag {
-      font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
-      background: #ede9fe; color: #5b21b6; padding: 0.3rem 0.75rem; border-radius: 999px;
-    }
-    h3 { font-size: 1.08rem; color: var(--navy-2); margin: 1.4rem 0 0.75rem; }
+    .sec-head h2 { font-size: 1.38rem; color: var(--navy); }
+    .sec-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #ede9fe; color: #5b21b6; padding: 0.3rem 0.75rem; border-radius: 999px; }
+    h3 { font-size: 1.06rem; color: var(--navy-2); margin: 1.3rem 0 0.7rem; }
 
-    /* KPI GRID */
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.4rem; }
-    .kpi-card {
-      background: #f8fafc; border: 1px solid var(--border); border-radius: 12px;
-      padding: 1.1rem 1.2rem; border-top: 4px solid var(--blue);
-    }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.3rem; }
+    .kpi-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.05rem 1.15rem; border-top: 4px solid var(--blue); }
     .kpi-card.violet { border-top-color: var(--violet); }
     .kpi-card.emerald { border-top-color: var(--emerald); }
     .kpi-card.amber { border-top-color: var(--amber); }
-    .kpi-label { font-size: 0.76rem; text-transform: uppercase; font-weight: 700; color: var(--muted); }
-    .kpi-val { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin: 0.25rem 0; }
+    .kpi-label { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+    .kpi-val { font-size: 1.38rem; font-weight: 800; color: var(--navy); margin: 0.22rem 0; }
     .kpi-sub { font-size: 0.82rem; color: var(--slate); }
+    .callout { background: #f5f3ff; border-left: 4px solid var(--violet); padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; font-size: 0.92rem; }
 
-    /* CALLOUT */
-    .callout {
-      background: #f5f3ff; border-left: 4px solid var(--violet);
-      padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; font-size: 0.93rem; color: #1e293b;
-    }
-
-    /* PRODUCT GALLERY (AESTHETIC CARDS) */
-    .product-gallery {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.3rem;
-      margin: 1rem 0 1.8rem;
-    }
-    .prod-card {
-      background: #fff; border: 1px solid var(--border); border-radius: 16px;
-      overflow: hidden; box-shadow: 0 6px 18px rgba(11,31,51,0.06);
-      display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(11,31,51,0.12); }
+    .product-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 1.25rem; margin: 1rem 0 1.6rem; }
+    .prod-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 18px rgba(11,31,51,0.06); display: flex; flex-direction: column; }
     .prod-card.winner { border: 2px solid var(--violet); }
-    .prod-top {
-      background: var(--navy); color: #fff; padding: 0.85rem 1rem; text-align: center;
-    }
+    .prod-top { background: var(--navy); color: #fff; padding: 0.8rem 1rem; text-align: center; }
     .prod-card.winner .prod-top { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
-    .prod-code { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; opacity: 0.85; font-weight: 700; }
-    .prod-title { font-size: 1.05rem; font-weight: 800; margin-top: 0.15rem; }
-    .prod-img-wrap {
-      background: #f8fafc; padding: 1rem; display: flex; align-items: center; justify-content: center;
-      height: 250px;
-    }
-    .prod-img-wrap img {
-      max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .prod-price {
-      padding: 0.9rem 1rem; text-align: center; border-top: 1px solid #edf2f7;
-      font-size: 1.25rem; font-weight: 800; color: #b91c1c; background: #fff;
-    }
+    .prod-code { font-size: 0.72rem; text-transform: uppercase; opacity: 0.88; font-weight: 700; }
+    .prod-title { font-size: 1.04rem; font-weight: 800; margin-top: 0.15rem; }
+    .prod-img-wrap { background: #f8fafc; padding: 1rem; display: flex; align-items: center; justify-content: center; height: 240px; }
+    .prod-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
+    .prod-price { padding: 0.85rem 1rem; text-align: center; border-top: 1px solid #edf2f7; font-size: 1.22rem; font-weight: 800; color: #b91c1c; }
 
-    /* TABLES */
     .table-wrap { overflow-x: auto; margin: 0.8rem 0 1.2rem; border: 1px solid var(--border); border-radius: 10px; }
     table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
-    th {
-      background: var(--navy); color: #fff; text-align: left; padding: 0.72rem 0.85rem;
-      font-weight: 700; white-space: nowrap;
-    }
-    td { padding: 0.68rem 0.85rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    th { background: var(--navy); color: #fff; text-align: left; padding: 0.7rem 0.85rem; font-weight: 700; white-space: nowrap; }
+    td { padding: 0.65rem 0.85rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
     tr:nth-child(even) td { background: #f8fafc; }
     .pill { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
     .pill-green { background: #d1fae5; color: #065f46; }
     .pill-amber { background: #fef3c7; color: #92400e; }
     .pill-red { background: #fee2e2; color: #991b1b; }
+    .pill-violet { background: #ede9fe; color: #5b21b6; }
 
-    /* CHARTS GRID */
-    .charts-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.3rem; margin: 1rem 0; }
-    .chart-box {
-      background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem;
-    }
-    .chart-box h4 { font-size: 0.94rem; color: var(--navy); margin-bottom: 0.75rem; }
-    .chart-h { position: relative; height: 270px; }
+    .charts-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1.25rem; margin: 1rem 0; }
+    .chart-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.05rem; }
+    .chart-box h4 { font-size: 0.93rem; color: var(--navy); margin-bottom: 0.7rem; }
+    .chart-h { position: relative; height: 265px; }
 
-    /* TABS FOR MODELS */
-    .tab-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
-    .tab-btn {
-      padding: 0.5rem 1rem; border-radius: 9px; border: 1px solid var(--border);
-      background: #fff; color: var(--slate); font-weight: 700; font-size: 0.84rem; cursor: pointer;
-    }
+    .tab-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0 1rem; }
+    .tab-btn { padding: 0.52rem 1rem; border-radius: 9px; border: 1px solid var(--border); background: #fff; color: var(--slate); font-weight: 700; font-size: 0.84rem; cursor: pointer; }
     .tab-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .model-explorer { display: grid; grid-template-columns: minmax(280px, 370px) 1fr; gap: 1.2rem; align-items: start; }
+    @media (max-width: 880px) { .model-explorer { grid-template-columns: 1fr; } }
+    .rank-panel { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .rank-panel-head { background: var(--navy); color: #fff; padding: 0.72rem 1rem; font-size: 0.84rem; font-weight: 700; display: flex; justify-content: space-between; }
+    .rank-hint { font-size: 0.75rem; color: #5b21b6; background: #ede9fe; padding: 0.42rem 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border); }
+    .rank-list { list-style: none; }
+    .rank-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+      padding: 0.65rem 0.9rem; border-bottom: 1px solid #e2e8f0; cursor: pointer;
+      border-left: 4px solid transparent; background: #fff; transition: 0.15s;
+    }
+    .rank-item:hover, .rank-item.selected { background: #f5f3ff; }
+    .rank-item.selected { border-left-color: var(--violet); font-weight: 700; }
+    .rank-pos {
+      display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px;
+      border-radius: 6px; font-size: 0.75rem; font-weight: 800; background: #e2e8f0; color: var(--navy); flex-shrink: 0;
+    }
+    .rank-item.top1 .rank-pos { background: #059669; color: #fff; }
+    .rank-item.selected .rank-pos { background: var(--violet); color: #fff; }
+    .rank-name { font-size: 0.85rem; color: var(--navy); }
+    .rank-type { font-size: 0.71rem; color: var(--muted); display: block; font-weight: 500; }
+    .rank-mape { font-size: 0.84rem; font-weight: 800; color: var(--navy-2); white-space: nowrap; }
 
-    /* SIMULATOR */
-    .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .trend-viewer { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.15rem; }
+    .trend-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.8rem; }
+    .trend-head h4 { font-size: 1rem; color: var(--navy); }
+    .trend-sub { font-size: 0.8rem; color: var(--muted); }
+    .trend-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.55rem; margin-bottom: 0.95rem; }
+    .tm-card { background: #fff; border: 1px solid var(--border); border-radius: 9px; padding: 0.52rem 0.72rem; }
+    .tm-card span { display: block; font-size: 0.67rem; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+    .tm-card strong { font-size: 0.96rem; color: var(--navy); }
+    .tm-card.accent strong { color: var(--violet); }
+    .trend-chart-wrap { position: relative; height: 310px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem; }
+    .trend-note { margin-top: 0.75rem; font-size: 0.82rem; color: var(--slate); background: #fff; border-left: 3px solid var(--blue); padding: 0.6rem 0.85rem; border-radius: 0 8px 8px 0; }
+
+    .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 1rem; margin: 1rem 0; }
     .sim-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
     .sim-box label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--slate); margin-top: 0.55rem; }
-    .sim-box input {
-      width: 100%; margin-top: 0.25rem; padding: 0.48rem 0.65rem; border: 1px solid #cbd5e1;
-      border-radius: 8px; font-size: 0.88rem; font-weight: 600;
-    }
-    .sim-result {
-      margin-top: 1.2rem; padding: 1.15rem 1.3rem; border-radius: 12px;
-      background: linear-gradient(135deg, #ecfdf5, #f5f3ff); border: 1px solid #c4b5fd;
-    }
+    .sim-box input { width: 100%; margin-top: 0.25rem; padding: 0.46rem 0.65rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; font-weight: 600; }
+    .sim-result { margin-top: 1.1rem; padding: 1.1rem 1.25rem; border-radius: 12px; background: linear-gradient(135deg, #ecfdf5, #f5f3ff); border: 1px solid #c4b5fd; }
 
-    /* CONCLUSIONS */
-    .conc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; }
-    .conc-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; background: #fff; }
+    .conc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 1rem; }
+    .conc-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.15rem; background: #fff; }
     .conc-card.c-win { border-top: 4px solid var(--violet); }
     .conc-card.c-op { border-top: 4px solid var(--emerald); }
     .conc-card.c-no { border-top: 4px solid var(--rose); }
 
-    /* ========================================================
-       FINAL EXECUTIVE BI DASHBOARD — "PALETA DE COLORES"
-       ======================================================== */
     section.bi-dashboard {
       background: linear-gradient(160deg, #071524 0%, #0b1f33 55%, #111827 100%);
-      color: #f8fafc;
-      border-radius: 20px;
-      padding: 2.2rem;
-      box-shadow: 0 20px 50px rgba(7, 21, 36, 0.35);
-      border: 1px solid rgba(148, 163, 184, 0.16);
-      margin-top: 2.5rem;
+      color: #f8fafc; border-radius: 20px; padding: 2.1rem;
+      box-shadow: 0 20px 50px rgba(7, 21, 36, 0.35); border: 1px solid rgba(148, 163, 184, 0.16); margin-top: 2.2rem;
     }
-    .bi-header {
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18); padding-bottom: 1.4rem; margin-bottom: 1.6rem;
-    }
+    .bi-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.1rem; border-bottom: 1px solid rgba(148,163,184,0.18); padding-bottom: 1.3rem; margin-bottom: 1.5rem; }
     .bi-title-group { display: flex; align-items: center; gap: 1rem; }
-    .bi-thumb {
-      width: 68px; height: 68px; border-radius: 14px; object-fit: cover;
-      background: #fff; padding: 4px; border: 2px solid #8b5cf6;
-      box-shadow: 0 6px 18px rgba(139, 92, 246, 0.35);
-    }
-    .bi-header h2 {
-      font-size: clamp(1.6rem, 2.8vw, 2.25rem); font-weight: 800; color: #ffffff; letter-spacing: -0.3px;
-    }
-    .bi-sub { color: #94a3b8; font-size: 0.88rem; margin-top: 0.2rem; }
-    .bi-pill {
-      background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.35);
-      padding: 0.42rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700;
-    }
-    .bi-kpis {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 0.9rem; margin-bottom: 1.6rem;
-    }
-    .bi-kpi {
-      background: rgba(255, 255, 255, 0.045); border: 1px solid rgba(148, 163, 184, 0.16);
-      border-radius: 14px; padding: 1rem 1.1rem; backdrop-filter: blur(8px);
-    }
-    .bi-kpi-lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: #94a3b8; font-weight: 700; }
-    .bi-kpi-num { font-size: 1.45rem; font-weight: 800; margin: 0.25rem 0; color: #fff; }
+    .bi-thumb { width: 66px; height: 66px; border-radius: 14px; object-fit: cover; background: #fff; padding: 4px; border: 2px solid #8b5cf6; }
+    .bi-header h2 { font-size: clamp(1.55rem, 2.8vw, 2.2rem); font-weight: 800; color: #fff; }
+    .bi-sub { color: #94a3b8; font-size: 0.87rem; margin-top: 0.2rem; }
+    .bi-pill { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.35); padding: 0.4rem 0.88rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+    .bi-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 0.9rem; margin-bottom: 1.5rem; }
+    .bi-kpi { background: rgba(255,255,255,0.045); border: 1px solid rgba(148,163,184,0.16); border-radius: 14px; padding: 0.95rem 1.05rem; }
+    .bi-kpi-lbl { font-size: 0.71rem; text-transform: uppercase; color: #94a3b8; font-weight: 700; }
+    .bi-kpi-num { font-size: 1.42rem; font-weight: 800; margin: 0.22rem 0; color: #fff; }
     .bi-kpi-num.v { color: #c4b5fd; }
     .bi-kpi-num.e { color: #34d399; }
     .bi-kpi-num.a { color: #fbbf24; }
-    .bi-kpi-note { font-size: 0.77rem; color: #cbd5e1; }
-
-    .bi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.2rem; margin-bottom: 1.4rem; }
-    .bi-panel {
-      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 16px; padding: 1.25rem;
-    }
-    .bi-panel-head {
-      display: flex; justify-content: space-between; align-items: center; gap: 0.6rem;
-      flex-wrap: wrap; margin-bottom: 0.9rem;
-    }
-    .bi-panel h3 { color: #f1f5f9; margin: 0; font-size: 0.98rem; }
+    .bi-kpi-note { font-size: 0.76rem; color: #cbd5e1; }
+    .bi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1.15rem; margin-bottom: 1.3rem; }
+    .bi-panel { background: rgba(255,255,255,0.04); border: 1px solid rgba(148,163,184,0.15); border-radius: 16px; padding: 1.2rem; }
+    .bi-panel-head { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.85rem; }
+    .bi-panel h3 { color: #f1f5f9; margin: 0; font-size: 0.97rem; }
     .bi-toggle { display: flex; gap: 0.35rem; }
-    .bi-toggle button {
-      background: rgba(255,255,255,0.08); color: #cbd5e1; border: 1px solid rgba(255,255,255,0.14);
-      padding: 0.3rem 0.7rem; border-radius: 8px; font-size: 0.76rem; font-weight: 700; cursor: pointer;
-    }
+    .bi-toggle button { background: rgba(255,255,255,0.08); color: #cbd5e1; border: 1px solid rgba(255,255,255,0.14); padding: 0.3rem 0.68rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; cursor: pointer; }
     .bi-toggle button.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
-
     .bi-sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; align-items: center; }
-    .bi-slider-row { margin-bottom: 0.85rem; }
-    .bi-slider-row label { display: flex; justify-content: space-between; font-size: 0.82rem; color: #cbd5e1; margin-bottom: 0.3rem; }
+    .bi-slider-row { margin-bottom: 0.8rem; }
+    .bi-slider-row label { display: flex; justify-content: space-between; font-size: 0.82rem; color: #cbd5e1; margin-bottom: 0.28rem; }
     .bi-slider-row strong { color: #fff; }
     .bi-slider-row input[type="range"] { width: 100%; accent-color: #8b5cf6; cursor: pointer; }
-    .bi-sim-out {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;
-    }
-    .bi-out-card {
-      background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(148,163,184,0.18);
-      border-radius: 12px; padding: 0.85rem;
-    }
-    .bi-out-card span { display: block; font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
-    .bi-out-card strong { font-size: 1.15rem; color: #fff; }
+    .bi-sim-out { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.72rem; }
+    .bi-out-card { background: rgba(15,23,42,0.7); border: 1px solid rgba(148,163,184,0.18); border-radius: 12px; padding: 0.82rem; }
+    .bi-out-card span { display: block; font-size: 0.71rem; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
+    .bi-out-card strong { font-size: 1.12rem; color: #fff; }
     .bi-out-card.hl strong { color: #34d399; }
-
-    .bi-specs {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem;
-      margin-top: 1rem; font-size: 0.84rem; color: #cbd5e1;
-    }
-    .bi-spec-item {
-      background: rgba(255,255,255,0.035); border-left: 3px solid #8b5cf6;
-      padding: 0.75rem 0.9rem; border-radius: 0 10px 10px 0;
-    }
+    .bi-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin-top: 1rem; font-size: 0.84rem; color: #cbd5e1; }
+    .bi-spec-item { background: rgba(255,255,255,0.035); border-left: 3px solid #8b5cf6; padding: 0.72rem 0.88rem; border-radius: 0 10px 10px 0; }
     .bi-spec-item.warn { border-left-color: #f59e0b; }
-    .bi-spec-item strong { color: #fff; display: block; margin-bottom: 0.2rem; }
-
-    footer {
-      text-align: center; padding: 1.8rem 1rem; color: var(--muted); font-size: 0.84rem;
-    }
-
-    @media print {
-      nav, .hero-actions, .bi-toggle, .tab-bar { display: none !important; }
-      section.block, section.bi-dashboard { box-shadow: none; break-inside: avoid; }
-    }
+    .bi-spec-item strong { color: #fff; display: block; margin-bottom: 0.18rem; }
+    footer { text-align: center; padding: 1.8rem 1rem; color: var(--muted); font-size: 0.84rem; }
+    @media print { nav, .hero-actions, .bi-toggle, .tab-bar, .rank-hint { display: none !important; } section.block, section.bi-dashboard { box-shadow: none; break-inside: avoid; } }
   </style>
 </head>
 <body>
 
-  <!-- BARRA DE NAVEGACIÓN -->
   <nav>
     <div class="nav-brand">Investigación de Mercados <span>| Informe Ejecutivo</span></div>
     <div class="nav-links">
@@ -314,7 +212,6 @@
     </div>
   </nav>
 
-  <!-- ENCABEZADO HERO -->
   <header class="hero">
     <div class="container">
       <div class="badge">Proyecto Final · Investigación de Mercados y Pronósticos de Demanda</div>
@@ -323,9 +220,10 @@
         Estudio integral que articula la investigación comercial y de proveedores en AliExpress, el análisis de tendencias en Google Trends (Todo el Mundo y Brasil como mercado referente), la auditoría de series semanales (53 semanas), la evaluación de 27 modelos de pronóstico y el Simulador de Viabilidad Integral.
       </p>
       <div class="hero-actions">
-        <a href="Investigacion_Mercados_Pronosticos_y_Matriz_Decision.xlsx" class="btn btn-primary">⬇ Descargar Libro de Excel (.xlsx)</a>
+        <a href="Investigacion_Mercados_Pronosticos_y_Matriz_Decision.xlsx" class="btn btn-primary">⬇ Descargar Excel (.xlsx)</a>
+        <a href="#etapa56" class="btn btn-outline">📈 Explorar los 27 Modelos</a>
         <a href="#dashboard-ganador" class="btn btn-outline">📊 Ir a Paleta de Colores</a>
-        <button onclick="window.print()" class="btn btn-outline">🖨 Imprimir / Guardar PDF</button>
+        <button onclick="window.print()" class="btn btn-outline">🖨 Imprimir / PDF</button>
       </div>
       <div class="meta-strip">
         <div><strong>Grupo de Trabajo</strong>José Manuel Vargas Ospina · Mauricio Ticora Rodríguez</div>
@@ -338,7 +236,6 @@
 
   <main class="container">
 
-    <!-- RESUMEN EJECUTIVO -->
     <section id="resumen" class="block">
       <div class="sec-head">
         <h2>Resumen Ejecutivo</h2>
@@ -367,49 +264,30 @@
         </div>
       </div>
       <div class="callout">
-        <strong>Síntesis de Decisión:</strong> Al ejecutar el <strong>Simulador de Viabilidad Integral</strong> con las métricas verificadas en Brasil, la <strong>Paleta de Colores</strong> obtiene el mejor equilibrio matemático cuantitativo (crecimiento anual <strong>+6,5%</strong>, menor error del estudio con <strong>MAPE 10,44%</strong> y costo de <strong>$3,39 USD</strong>). Al cruzar este resultado con los riesgos regulatorios de importación, el <strong>Mini Humidificador USB</strong> (+100.000 ventas, proveedor de 9,39 años, USB 5V y sin barrera sanitaria INVIMA) representa la alternativa más ágil en operación, mientras que el <strong>Repelente Ultrasónico</strong> queda descartado por pendiente negativa (-71,6%), incompatibilidad eléctrica (220V vs. 110V) y 13,68% de reseñas negativas por ineficacia.
+        <strong>Síntesis de Decisión:</strong> En el <strong>Simulador de Viabilidad Integral</strong>, la <strong>Paleta de Colores</strong> obtiene el mejor equilibrio cuantitativo (crecimiento anual <strong>+6,5%</strong>, menor error del estudio con <strong>MAPE 10,44%</strong> y costo de <strong>$3,39 USD</strong>). Operativamente, el <strong>Mini Humidificador USB</strong> (+100.000 ventas, proveedor de 9,39 años, USB 5V y sin barrera sanitaria INVIMA) representa la alternativa más ágil de importación, mientras que el <strong>Repelente Ultrasónico</strong> queda descartado por pendiente negativa (-71,6%), incompatibilidad eléctrica (220V vs. 110V) y 13,68% de reseñas negativas por ineficacia.
       </div>
     </section>
 
-    <!-- ETAPAS 1 Y 2: PRODUCTOS + GALERÍA VISUAL -->
     <section id="etapa12" class="block">
       <div class="sec-head">
         <h2>Etapas 1 y 2: Productos Evaluados y Proveedores (AliExpress)</h2>
         <span class="sec-tag">Investigación Comercial</span>
       </div>
 
-      <!-- GALERÍA ESTÉTICA DE PRODUCTOS -->
       <div class="product-gallery">
         <article class="prod-card">
-          <div class="prod-top">
-            <div class="prod-code">Producto A</div>
-            <div class="prod-title">Repelente Ultrasónico de Plagas</div>
-          </div>
-          <div class="prod-img-wrap">
-            <img src="imagenes/repelente.jpg" alt="Repelente Ultrasónico de Plagas" onerror="this.alt='Sube repelente.jpg al repositorio de GitHub'">
-          </div>
+          <div class="prod-top"><div class="prod-code">Producto A</div><div class="prod-title">Repelente Ultrasónico de Plagas</div></div>
+          <div class="prod-img-wrap"><img src="imagenes/repelente.jpg" alt="Repelente Ultrasónico de Plagas"></div>
           <div class="prod-price">$12.829,12 COP</div>
         </article>
-
         <article class="prod-card winner">
-          <div class="prod-top">
-            <div class="prod-code">Producto B · 🏆 Ganador Cuantitativo</div>
-            <div class="prod-title">Paleta de Colores</div>
-          </div>
-          <div class="prod-img-wrap">
-            <img src="imagenes/paleta.jpg" alt="Paleta de Colores" onerror="this.alt='Sube paleta.jpg al repositorio de GitHub'">
-          </div>
+          <div class="prod-top"><div class="prod-code">Producto B · 🏆 Ganador Cuantitativo</div><div class="prod-title">Paleta de Colores</div></div>
+          <div class="prod-img-wrap"><img src="imagenes/paleta.jpg" alt="Paleta de Colores"></div>
           <div class="prod-price">$14.258,55 COP</div>
         </article>
-
         <article class="prod-card">
-          <div class="prod-top">
-            <div class="prod-code">Producto C</div>
-            <div class="prod-title">Mini Humidificador USB</div>
-          </div>
-          <div class="prod-img-wrap">
-            <img src="imagenes/humidificador.jpg" alt="Mini Humidificador USB" onerror="this.alt='Sube humidificador.jpg al repositorio de GitHub'">
-          </div>
+          <div class="prod-top"><div class="prod-code">Producto C</div><div class="prod-title">Mini Humidificador USB</div></div>
+          <div class="prod-img-wrap"><img src="imagenes/humidificador.jpg" alt="Mini Humidificador USB"></div>
           <div class="prod-price">$22.120,40 COP</div>
         </article>
       </div>
@@ -418,12 +296,7 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th>Criterio Evaluado</th>
-              <th>Producto A: Repelente Ultrasónico</th>
-              <th>Producto B: Paleta de Colores</th>
-              <th>Producto C: Mini Humidificador USB</th>
-            </tr>
+            <tr><th>Criterio Evaluado</th><th>Producto A: Repelente Ultrasónico</th><th>Producto B: Paleta de Colores</th><th>Producto C: Mini Humidificador USB</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>1. Nombre comercial</strong></td><td>Repelente ultrasónico de plagas enchufable (mosquitos, ratones, arañas, hormigas y cucarachas)</td><td>Paleta de Colores (40/74/78 tonos mate y purpurina, resistente al agua, Var: 40 Color 01)</td><td>Mini humidificador de aire 180 ml, difusor de aroma eléctrico USB con luces (H09 Pro)</td></tr>
@@ -446,9 +319,7 @@
       <h3>2.2 Valoración Cualitativa de Reseñas y Proveedores</h3>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>Producto</th><th>Antigüedad</th><th>Puntaje Proveedor</th><th>Principales Quejas Observadas</th><th>Riesgo Cualitativo</th></tr>
-          </thead>
+          <thead><tr><th>Producto</th><th>Antigüedad</th><th>Puntaje Proveedor</th><th>Principales Quejas Observadas</th><th>Riesgo Cualitativo</th></tr></thead>
           <tbody>
             <tr><td><strong>Producto A — Repelente</strong></td><td>1,94 años</td><td>2 / 5</td><td><em>no efectivo</em> (212) · <em>todavía intentando</em> (180) · <em>eficacia incierta</em> (152)</td><td><span class="pill pill-red">Alto</span></td></tr>
             <tr><td><strong>Producto B — Paleta de Colores</strong></td><td>11,99 años</td><td>5 / 5</td><td><em>muy pequeño</em> (151) · sin quejas masivas de calidad</td><td><span class="pill pill-amber">Medio (Regulatorio)</span></td></tr>
@@ -458,30 +329,18 @@
       </div>
     </section>
 
-    <!-- ETAPA 3: GOOGLE TRENDS -->
     <section id="etapa3" class="block">
       <div class="sec-head">
         <h2>Etapa 3: Análisis de Tendencias en Google Trends</h2>
         <span class="sec-tag">53 Semanas · Mundo y Brasil</span>
       </div>
-      <p style="font-size:0.9rem;color:var(--slate);margin-bottom:1rem;">
-        Series semanales verificadas (<code>2025-11-23</code> a <code>2026-11-22</code>) comparando <strong>Todo el Mundo</strong> frente a <strong>Brasil</strong> como mercado referente. Las series individuales (0–100) permiten evaluar estabilidad y estacionalidad sin distorsiones por idioma.
-      </p>
       <div class="charts-2">
-        <div class="chart-box">
-          <h4>3.1 Evolución Semanal — Todo el Mundo (Escala 0–100)</h4>
-          <div class="chart-h"><canvas id="chartWW"></canvas></div>
-        </div>
-        <div class="chart-box">
-          <h4>3.2 Evolución Semanal — Brasil (Mercado Referente 0–100)</h4>
-          <div class="chart-h"><canvas id="chartBR"></canvas></div>
-        </div>
+        <div class="chart-box"><h4>3.1 Evolución Semanal — Todo el Mundo (0–100)</h4><div class="chart-h"><canvas id="chartWW"></canvas></div></div>
+        <div class="chart-box"><h4>3.2 Evolución Semanal — Brasil (Mercado Referente 0–100)</h4><div class="chart-h"><canvas id="chartBR"></canvas></div></div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>Producto</th><th>Media Mundo</th><th>CV Mundo</th><th>Media Brasil</th><th>Desv.Est Brasil</th><th>CV Brasil</th><th>Corr. Mundo–Brasil (r)</th></tr>
-          </thead>
+          <thead><tr><th>Producto</th><th>Media Mundo</th><th>CV Mundo</th><th>Media Brasil</th><th>Desv.Est Brasil</th><th>CV Brasil</th><th>Corr. Mundo–Brasil (r)</th></tr></thead>
           <tbody>
             <tr><td><strong>A — Repelente</strong></td><td>76,43</td><td>11,53%</td><td>50,81</td><td>18,62</td><td>36,65%</td><td>+0,735</td></tr>
             <tr><td><strong>B — Paleta de Colores</strong></td><td>74,55</td><td>14,80%</td><td><strong>70,17</strong></td><td><strong>11,49</strong></td><td><strong>16,37%</strong></td><td>+0,701</td></tr>
@@ -491,7 +350,6 @@
       </div>
     </section>
 
-    <!-- ETAPA 4: AUDITORÍA -->
     <section id="etapa4" class="block">
       <div class="sec-head">
         <h2>Etapa 4: Auditoría y Partición de Datos (Brasil)</h2>
@@ -499,9 +357,7 @@
       </div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>Serie Histórica (Brasil)</th><th>N</th><th>Nulos / Ceros</th><th>Q1</th><th>Q3</th><th>IQR</th><th>Límites IQR</th><th>Decisión Metodológica</th></tr>
-          </thead>
+          <thead><tr><th>Serie Histórica (Brasil)</th><th>N</th><th>Nulos / Ceros</th><th>Q1</th><th>Q3</th><th>IQR</th><th>Límites IQR</th><th>Decisión Metodológica</th></tr></thead>
           <tbody>
             <tr><td><strong>A — Repelente</strong></td><td>53</td><td>0 / 0</td><td>33,0</td><td>65,0</td><td>32,0</td><td>[-15,0 ; 113,0]</td><td>0 atípicos — Serie intacta.</td></tr>
             <tr><td><strong>B — Paleta de Colores</strong></td><td>53</td><td>0 / 0</td><td>61,0</td><td>78,0</td><td>17,0</td><td>[35,5 ; 103,5]</td><td>0 atípicos — Serie intacta y más estable.</td></tr>
@@ -514,42 +370,46 @@
       </p>
     </section>
 
-    <!-- ETAPAS 5 Y 6: 27 MODELOS -->
     <section id="etapa56" class="block">
       <div class="sec-head">
-        <h2>Etapas 5 y 6: Modelado Cuantitativo (27 Modelos Evaluados)</h2>
-        <span class="sec-tag">6 Base + 3 Adicionales × 3 Productos</span>
+        <h2>Etapas 5 y 6: Explorador Interactivo de los 27 Modelos de Pronóstico</h2>
+        <span class="sec-tag">Ranking por Efectividad + Curva de Tendencia</span>
       </div>
+      <p style="font-size:0.9rem;color:var(--slate);margin-bottom:0.8rem;">
+        Selecciona un producto y haz clic sobre cualquiera de los <strong>9 modelos ordenados del #1 al #9 según su efectividad (menor MAPE)</strong> para visualizar su curva histórica (Sem. 1–45), validación (Sem. 46–53) y proyección futura (Sem. 54–57).
+      </p>
       <div class="tab-bar">
-        <button class="tab-btn active" onclick="renderModelTab('pal', this)">Producto B: Paleta de Colores (Ganador)</button>
-        <button class="tab-btn" onclick="renderModelTab('hum', this)">Producto C: Mini Humidificador</button>
-        <button class="tab-btn" onclick="renderModelTab('rep', this)">Producto A: Repelente</button>
+        <button class="tab-btn active" onclick="selectModelProduct('pal', this)">🏆 Producto B: Paleta de Colores (9 modelos)</button>
+        <button class="tab-btn" onclick="selectModelProduct('hum', this)">Producto C: Mini Humidificador USB (9 modelos)</button>
+        <button class="tab-btn" onclick="selectModelProduct('rep', this)">Producto A: Repelente Ultrasónico (9 modelos)</button>
       </div>
-      <div class="charts-2">
-        <div class="chart-box">
-          <h4 id="modelChartTitle">Ranking de Error MAPE (%) — Paleta de Colores</h4>
-          <div class="chart-h"><canvas id="chartModels"></canvas></div>
+      <div class="model-explorer">
+        <div class="rank-panel">
+          <div class="rank-panel-head"><span id="rankPanelProduct">Ranking — Paleta de Colores</span><span>MAPE (%)</span></div>
+          <div class="rank-hint">👆 Haz clic en un modelo para ver su curva de tendencia</div>
+          <ul id="modelRankList" class="rank-list"></ul>
         </div>
-        <div class="chart-box">
-          <h4>Resumen del Mejor Modelo por Producto</h4>
-          <div class="table-wrap" style="margin-top:0.4rem;">
-            <table>
-              <thead><tr><th>Producto</th><th>Modelo Ganador</th><th>MAPE</th><th>Pron. 4 Sem.</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Paleta de Colores</strong></td><td>Fourier K = 2</td><td><span class="pill pill-green">10,44%</span></td><td><strong>82,5 pts</strong></td></tr>
-                <tr><td><strong>Mini Humidificador</strong></td><td>ARIMA(1,1,1)</td><td><span class="pill pill-amber">17,67%</span></td><td>53,7 pts</td></tr>
-                <tr><td><strong>Repelente</strong></td><td>Fourier K = 2</td><td><span class="pill pill-red">19,69%</span></td><td>68,5 pts</td></tr>
-              </tbody>
-            </table>
+        <div class="trend-viewer">
+          <div class="trend-head">
+            <div>
+              <h4 id="selectedModelTitle">Modelo #1: Fourier K = 2</h4>
+              <div id="selectedModelSub" class="trend-sub">Paleta de Colores · Modelo Adicional</div>
+            </div>
+            <span id="selectedModelBadge" class="pill pill-green">🏆 Puesto #1 · Más Efectivo</span>
           </div>
-          <p style="font-size:0.82rem;color:var(--slate);margin-top:0.6rem;">
-            En los tres productos, un modelo adicional (<strong>Regresión Armónica de Fourier</strong> o <strong>ARIMA</strong>) superó a los 6 modelos base (Naïve, PM3, PM6, SES, Holt y Regresión Lineal).
-          </p>
+          <div class="trend-metrics">
+            <div class="tm-card accent"><span>Error MAPE</span><strong id="tmMape">10,44%</strong></div>
+            <div class="tm-card"><span>Error MAD</span><strong id="tmMad">8,24</strong></div>
+            <div class="tm-card"><span>Error MSE</span><strong id="tmMse">114,51</strong></div>
+            <div class="tm-card"><span>Sesgo ME</span><strong id="tmMe">+5,55</strong></div>
+            <div class="tm-card accent"><span>Pron. 4 Sem.</span><strong id="tmFore">82,5 pts</strong></div>
+          </div>
+          <div class="trend-chart-wrap"><canvas id="modelTrendCanvas"></canvas></div>
+          <div id="selectedModelNote" class="trend-note"></div>
         </div>
       </div>
     </section>
 
-    <!-- ETAPA 7: SIMULADOR OFICIAL -->
     <section id="etapa7" class="block">
       <div class="sec-head">
         <h2>Etapa 7: Simulador de Viabilidad Integral (Matriz de Decisión)</h2>
@@ -582,7 +442,6 @@
       <div id="simOutput" class="sim-result"></div>
     </section>
 
-    <!-- CONCLUSIONES -->
     <section id="conclusiones" class="block">
       <div class="sec-head">
         <h2>Conclusiones y Recomendaciones Estratégicas</h2>
@@ -591,28 +450,19 @@
       <div class="conc-grid">
         <div class="conc-card c-win">
           <h3 style="margin-top:0;">🏆 Paleta de Colores — Ganador Cuantitativo</h3>
-          <p style="font-size:0.88rem;color:var(--slate);">
-            Lidera el simulador con crecimiento anual <strong>+6,5%</strong>, menor error de pronóstico (<strong>MAPE 10,44%</strong>), proveedor directo de <strong>11,99 años</strong> y costo competitivo (<strong>$3,39 USD</strong>). <em>Condición:</em> tramitar registro sanitario INVIMA (NSO) para venta formal.
-          </p>
+          <p style="font-size:0.88rem;color:var(--slate);">Lidera el simulador con crecimiento anual <strong>+6,5%</strong>, menor error de pronóstico (<strong>MAPE 10,44%</strong>), proveedor directo de <strong>11,99 años</strong> y costo competitivo (<strong>$3,39 USD</strong>). <em>Condición:</em> tramitar registro sanitario INVIMA (NSO) para venta formal.</p>
         </div>
         <div class="conc-card c-op">
           <h3 style="margin-top:0;">⚡ Mini Humidificador USB — Líder Operativo</h3>
-          <p style="font-size:0.88rem;color:var(--slate);">
-            Alternativa prioritaria sin trámites sanitarios: supera las <strong>+100.000 unidades</strong> vendidas, tiene tendencia positiva (+5,0%), proveedor sólido (9,39 años) y opera por <strong>USB 5V</strong> sin fecha de caducidad.
-          </p>
+          <p style="font-size:0.88rem;color:var(--slate);">Alternativa prioritaria sin trámites sanitarios: supera las <strong>+100.000 unidades</strong> vendidas, tiene tendencia positiva (+5,0%), proveedor sólido (9,39 años) y opera por <strong>USB 5V</strong> sin fecha de caducidad.</p>
         </div>
         <div class="conc-card c-no">
           <h3 style="margin-top:0;">⛔ Repelente Ultrasónico — No Recomendado</h3>
-          <p style="font-size:0.88rem;color:var(--slate);">
-            Descartado por tendencia anual negativa en Brasil (<strong>-71,6%</strong>), mayor volatilidad (CV 36,65%), 13,68% de reseñas negativas por ineficacia e <strong>incompatibilidad eléctrica (220V vs. 110V)</strong>.
-          </p>
+          <p style="font-size:0.88rem;color:var(--slate);">Descartado por tendencia anual negativa en Brasil (<strong>-71,6%</strong>), mayor volatilidad (CV 36,65%), 13,68% de reseñas negativas por ineficacia e <strong>incompatibilidad eléctrica (220V vs. 110V)</strong>.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         DASHBOARD FINAL DEL PRODUCTO GANADOR — TÍTULO: "PALETA DE COLORES"
-         ================================================================ -->
     <section id="dashboard-ganador" class="bi-dashboard">
       <div class="bi-header">
         <div class="bi-title-group">
@@ -625,41 +475,15 @@
         <div class="bi-pill">🏆 #1 Viabilidad Cuantitativa · Score -3,51</div>
       </div>
 
-      <!-- 6 TARJETAS KPI -->
       <div class="bi-kpis">
-        <div class="bi-kpi">
-          <div class="bi-kpi-lbl">Precio AliExpress</div>
-          <div class="bi-kpi-num v">$14.258,55</div>
-          <div class="bi-kpi-note">COP (~$3,39 USD · Desc. 72,8%)</div>
-        </div>
-        <div class="bi-kpi">
-          <div class="bi-kpi-lbl">Precisión Pronóstico</div>
-          <div class="bi-kpi-num e">10,44%</div>
-          <div class="bi-kpi-note">MAPE · Fourier K = 2 (Menor del estudio)</div>
-        </div>
-        <div class="bi-kpi">
-          <div class="bi-kpi-lbl">Crecimiento Anual</div>
-          <div class="bi-kpi-num e">+6,5%</div>
-          <div class="bi-kpi-note">Pendiente positiva en Brasil (53 sem.)</div>
-        </div>
-        <div class="bi-kpi">
-          <div class="bi-kpi-lbl">Pronóstico 4 Semanas</div>
-          <div class="bi-kpi-num v">82,5 pts</div>
-          <div class="bi-kpi-note">Proyección promedio dic. 2026</div>
-        </div>
-        <div class="bi-kpi">
-          <div class="bi-kpi-lbl">Aceptación Clientes</div>
-          <div class="bi-kpi-num a">4,5 ★</div>
-          <div class="bi-kpi-note">87,4% positivas (3.358 valoraciones)</div>
-        </div>
-        <div class="bi-kpi">
-          <div class="bi-kpi-lbl">Respaldo Proveedor</div>
-          <div class="bi-kpi-num">11,99 años</div>
-          <div class="bi-kpi-note">Fabricante directo (Guangzhou)</div>
-        </div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Precio AliExpress</div><div class="bi-kpi-num v">$14.258,55</div><div class="bi-kpi-note">COP (~$3,39 USD · Desc. 72,8%)</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Precisión Pronóstico</div><div class="bi-kpi-num e">10,44%</div><div class="bi-kpi-note">MAPE · Fourier K = 2</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Crecimiento Anual</div><div class="bi-kpi-num e">+6,5%</div><div class="bi-kpi-note">Pendiente positiva en Brasil</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Pronóstico 4 Semanas</div><div class="bi-kpi-num v">82,5 pts</div><div class="bi-kpi-note">Proyección dic. 2026</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Aceptación Clientes</div><div class="bi-kpi-num a">4,5 ★</div><div class="bi-kpi-note">87,4% positivas (3.358 reseñas)</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Respaldo Proveedor</div><div class="bi-kpi-num">11,99 años</div><div class="bi-kpi-note">Fabricante directo (Guangzhou)</div></div>
       </div>
 
-      <!-- 4 GRÁFICAS INTERACTIVAS -->
       <div class="bi-grid">
         <div class="bi-panel">
           <div class="bi-panel-head">
@@ -671,48 +495,27 @@
           </div>
           <div class="chart-h"><canvas id="biGeoChart"></canvas></div>
         </div>
-
         <div class="bi-panel">
-          <div class="bi-panel-head">
-            <h3>Comparativa Score — Matriz de Decisión (Etapa 7)</h3>
-          </div>
+          <div class="bi-panel-head"><h3>Comparativa Score — Matriz de Decisión (Etapa 7)</h3></div>
           <div class="chart-h"><canvas id="biScoreChart"></canvas></div>
         </div>
-
         <div class="bi-panel">
-          <div class="bi-panel-head">
-            <h3>Distribución de Valoraciones (3.358 Reseñas)</h3>
-          </div>
+          <div class="bi-panel-head"><h3>Distribución de Valoraciones (3.358 Reseñas)</h3></div>
           <div class="chart-h"><canvas id="biReviewChart"></canvas></div>
         </div>
-
         <div class="bi-panel">
-          <div class="bi-panel-head">
-            <h3>Estabilidad Estadística: Todo el Mundo vs. Brasil</h3>
-          </div>
+          <div class="bi-panel-head"><h3>Estabilidad Estadística: Todo el Mundo vs. Brasil</h3></div>
           <div class="chart-h"><canvas id="biStabilityChart"></canvas></div>
         </div>
       </div>
 
-      <!-- SIMULADOR DE RENTABILIDAD EN VIVO -->
       <div class="bi-panel" style="margin-bottom:1.2rem;">
-        <div class="bi-panel-head">
-          <h3>Simulador Interactivo de Rentabilidad de Importación (COP)</h3>
-        </div>
+        <div class="bi-panel-head"><h3>Simulador Interactivo de Rentabilidad de Importación (COP)</h3></div>
         <div class="bi-sim-grid">
           <div>
-            <div class="bi-slider-row">
-              <label>Cantidad a Importar <strong id="lblUnits">100 uds</strong></label>
-              <input id="slUnits" type="range" min="20" max="1000" step="10" value="100" oninput="calcImportSim()">
-            </div>
-            <div class="bi-slider-row">
-              <label>Precio de Venta Sugerido en Colombia <strong id="lblPvp">$45.000 COP</strong></label>
-              <input id="slPvp" type="range" min="25000" max="90000" step="1000" value="45000" oninput="calcImportSim()">
-            </div>
-            <div class="bi-slider-row">
-              <label>Logística, Arancel y Nacionalización <strong id="lblLog">30%</strong></label>
-              <input id="slLog" type="range" min="15" max="60" step="5" value="30" oninput="calcImportSim()">
-            </div>
+            <div class="bi-slider-row"><label>Cantidad a Importar <strong id="lblUnits">100 uds</strong></label><input id="slUnits" type="range" min="20" max="1000" step="10" value="100" oninput="calcImportSim()"></div>
+            <div class="bi-slider-row"><label>Precio de Venta Sugerido en Colombia <strong id="lblPvp">$45.000 COP</strong></label><input id="slPvp" type="range" min="25000" max="90000" step="1000" value="45000" oninput="calcImportSim()"></div>
+            <div class="bi-slider-row"><label>Logística, Arancel y Nacionalización <strong id="lblLog">30%</strong></label><input id="slLog" type="range" min="15" max="60" step="5" value="30" oninput="calcImportSim()"></div>
           </div>
           <div class="bi-sim-out">
             <div class="bi-out-card"><span>Inversión Total</span><strong id="outInv">$1.853.612</strong></div>
@@ -723,20 +526,10 @@
         </div>
       </div>
 
-      <!-- FICHA TÉCNICA Y REGULATORIA -->
       <div class="bi-specs">
-        <div class="bi-spec-item">
-          <strong>Fabricante Verificado</strong>
-          Guangzhou Hongyiqiao Cosmetics Co., Ltd. · 11,99 años de trayectoria · Calificación 5/5.
-        </div>
-        <div class="bi-spec-item">
-          <strong>Ventaja Logística</strong>
-          Peso unitario ultraligero de 90 g (15,1 × 10,2 × 1,1 cm), ideal para consolidar carga aérea o marítima.
-        </div>
-        <div class="bi-spec-item warn">
-          <strong>Requisito Regulatorio (Colombia)</strong>
-          Por ser producto cosmético con vida útil de 3 años (PAO 12 m), exige Notificación Sanitaria Obligatoria <strong>INVIMA (NSO)</strong> para distribución formal.
-        </div>
+        <div class="bi-spec-item"><strong>Fabricante Verificado</strong>Guangzhou Hongyiqiao Cosmetics Co., Ltd. · 11,99 años de trayectoria · Calificación 5/5.</div>
+        <div class="bi-spec-item"><strong>Ventaja Logística</strong>Peso unitario ultraligero de 90 g (15,1 × 10,2 × 1,1 cm), ideal para consolidar carga aérea o marítima.</div>
+        <div class="bi-spec-item warn"><strong>Requisito Regulatorio (Colombia)</strong>Por ser producto cosmético con vida útil de 3 años (PAO 12 m), exige Notificación Sanitaria Obligatoria <strong>INVIMA (NSO)</strong> para distribución formal.</div>
       </div>
     </section>
 
@@ -747,16 +540,17 @@
   </footer>
 
   <script>
-    /* ======= DATOS REALES VERIFICADOS (53 SEMANAS) ======= */
     const DATES = ["2025-11-23","2025-11-30","2025-12-07","2025-12-14","2025-12-21","2025-12-28","2026-01-04","2026-01-11","2026-01-18","2026-01-25","2026-02-01","2026-02-08","2026-02-15","2026-02-22","2026-03-01","2026-03-08","2026-03-15","2026-03-22","2026-03-29","2026-04-05","2026-04-12","2026-04-19","2026-04-26","2026-05-03","2026-05-10","2026-05-17","2026-05-24","2026-05-31","2026-06-07","2026-06-14","2026-06-21","2026-06-28","2026-07-05","2026-07-12","2026-07-19","2026-07-26","2026-08-02","2026-08-09","2026-08-16","2026-08-23","2026-08-30","2026-09-06","2026-09-13","2026-09-20","2026-09-27","2026-10-04","2026-10-11","2026-10-18","2026-10-25","2026-11-01","2026-11-08","2026-11-15","2026-11-22"];
+    const DATES_57 = [...DATES, "2026-11-29 (P1)", "2026-12-06 (P2)", "2026-12-13 (P3)", "2026-12-20 (P4)"];
+
     const WW_REP = [81,75,69,72,87,99,84,85,70,75,76,85,94,75,78,72,81,91,80,76,74,74,78,71,67,71,73,71,70,73,71,77,67,76,83,70,70,66,77,69,74,62,60,74,78,71,77,70,65,83,87,100,97];
     const WW_PAL = [91,94,99,100,90,75,70,61,61,67,65,78,76,63,63,57,61,65,76,69,74,66,65,67,63,73,73,79,63,65,61,64,66,72,65,69,71,74,88,94,85,80,70,75,76,84,85,76,83,77,91,91,85];
     const WW_HUM = [92,100,85,88,94,96,88,84,81,81,78,94,99,79,75,72,70,78,75,72,72,69,66,72,70,78,83,73,67,63,68,61,65,56,64,57,57,63,65,58,58,56,50,57,60,57,55,67,63,57,66,63,59];
+
     const BR_REP = [53,65,59,67,95,100,81,74,58,60,66,77,92,65,65,57,65,66,63,52,52,51,52,43,32,34,33,33,28,28,25,29,32,32,33,32,35,37,41,40,40,31,32,40,49,38,45,38,33,56,51,68,70];
     const BR_PAL = [83,83,88,98,94,71,67,61,62,72,71,62,63,60,65,54,51,54,58,54,58,69,60,55,62,59,78,81,68,61,60,74,81,83,68,62,75,75,77,69,74,73,65,64,74,70,79,70,58,79,100,83,84];
     const BR_HUM = [51,55,45,36,100,99,46,64,31,38,46,43,49,44,47,50,51,35,27,38,50,41,29,57,55,51,37,36,32,23,29,30,39,43,52,46,44,69,77,64,65,38,43,44,86,53,63,54,33,50,45,53,74];
 
-    /* 1. GRÁFICAS GOOGLE TRENDS (ETAPA 3) */
     const commonLineOpts = {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { position: 'bottom' } },
@@ -785,89 +579,228 @@
       }, options: commonLineOpts
     });
 
-    /* 2. GRÁFICA DE 27 MODELOS (ETAPAS 5-6) */
-    const MODEL_DATA = {
+    function buildAllModelCurves(series) {
+      const trainEnd = 45;
+      let sumT = 0, sumY = 0, sumTT = 0, sumTY = 0;
+      for (let t = 0; t < trainEnd; t++) { sumT += t; sumY += series[t]; sumTT += t * t; sumTY += t * series[t]; }
+      const b1 = (trainEnd * sumTY - sumT * sumY) / (trainEnd * sumTT - sumT * sumT);
+      const b0 = (sumY - b1 * sumT) / trainEnd;
+      const lin = Array.from({ length: 57 }, (_, t) => +(b0 + b1 * t).toFixed(2));
+
+      const w = (2 * Math.PI) / 52;
+      const X = Array.from({ length: trainEnd }, (_, t) => [1, t, Math.sin(w * t), Math.cos(w * t), Math.sin(2 * w * t), Math.cos(2 * w * t)]);
+      const k = 6;
+      const XT = Array.from({ length: k }, (_, i) => X.map(r => r[i]));
+      const XTX = Array.from({ length: k }, (_, i) => Array.from({ length: k }, (_, j) => XT[i].reduce((s, v, idx) => s + v * X[idx][j], 0)));
+      const XTy = Array.from({ length: k }, (_, i) => XT[i].reduce((s, v, idx) => s + v * series[idx], 0));
+      const A = XTX.map((row, i) => [...row, XTy[i]]);
+      for (let i = 0; i < k; i++) {
+        let maxR = i;
+        for (let r = i + 1; r < k; r++) if (Math.abs(A[r][i]) > Math.abs(A[maxR][i])) maxR = r;
+        [A[i], A[maxR]] = [A[maxR], A[i]];
+        for (let r = i + 1; r < k; r++) {
+          const f = A[r][i] / A[i][i];
+          for (let c = i; c <= k; c++) A[r][c] -= f * A[i][c];
+        }
+      }
+      const beta = Array(k).fill(0);
+      for (let i = k - 1; i >= 0; i--) {
+        let s = A[i][k];
+        for (let j = i + 1; j < k; j++) s -= A[i][j] * beta[j];
+        beta[i] = s / A[i][i];
+      }
+      const fourier = Array.from({ length: 57 }, (_, t) => {
+        const f = [1, t, Math.sin(w * t), Math.cos(w * t), Math.sin(2 * w * t), Math.cos(2 * w * t)];
+        return +f.reduce((acc, v, idx) => acc + v * beta[idx], 0).toFixed(2);
+      });
+
+      const naive = Array.from({ length: 57 }, (_, t) => t === 0 ? series[0] : (t <= trainEnd ? series[t - 1] : series[trainEnd - 1]));
+
+      function movingAvg(win) {
+        const out = [];
+        for (let t = 0; t < 57; t++) {
+          if (t < win) out.push(series[t]);
+          else if (t <= trainEnd) out.push(+(series.slice(t - win, t).reduce((a, b) => a + b, 0) / win).toFixed(2));
+          else out.push(+(out.slice(t - win, t).reduce((a, b) => a + b, 0) / win).toFixed(2));
+        }
+        return out;
+      }
+      const pm3 = movingAvg(3);
+      const pm6 = movingAvg(6);
+
+      const ses = [series[0]];
+      for (let t = 1; t < 57; t++) ses.push(t <= trainEnd ? +(0.35 * series[t - 1] + 0.65 * ses[t - 1]).toFixed(2) : ses[trainEnd]);
+
+      function holtFit(alpha, betaH, phi) {
+        let l = series[0], b = series[1] - series[0];
+        const out = [l];
+        for (let t = 1; t < 57; t++) {
+          if (t <= trainEnd) {
+            out.push(+(l + phi * b).toFixed(2));
+            const prevL = l;
+            l = alpha * series[t] + (1 - alpha) * (l + phi * b);
+            b = betaH * (l - prevL) + (1 - betaH) * phi * b;
+          } else {
+            const h = t - trainEnd;
+            let phiSum = 0;
+            for (let j = 1; j <= h; j++) phiSum += Math.pow(phi, j);
+            out.push(+(l + phiSum * b).toFixed(2));
+          }
+        }
+        return out;
+      }
+      const holtLin = holtFit(0.32, 0.08, 1.0);
+      const holtDamp = holtFit(0.35, 0.08, 0.85);
+
+      const arima = Array.from({ length: 57 }, (_, t) => {
+        if (t < 2) return series[t];
+        if (t <= trainEnd) return +(series[t - 1] + 0.35 * (series[t - 1] - series[t - 2])).toFixed(2);
+        const h = t - trainEnd;
+        const lastDiff = series[trainEnd - 1] - series[trainEnd - 2];
+        return +(series[trainEnd - 1] + lastDiff * 0.35 * ((1 - Math.pow(0.45, h)) / 0.55)).toFixed(2);
+      });
+
+      return { fourier, lin, holtDamp, arima, pm6, pm3, ses, naive, holtLin };
+    }
+
+    const CURVES_PAL = buildAllModelCurves(BR_PAL);
+    const CURVES_HUM = buildAllModelCurves(BR_HUM);
+    const CURVES_REP = buildAllModelCurves(BR_REP);
+
+    const MODELS_CATALOG = {
       pal: {
-        title: 'Ranking de Error MAPE (%) — Paleta de Colores',
-        labels: ['Fourier K=2', 'Reg. Lineal', 'Holt Damped', 'ARIMA(1,1,1)', 'PM (n=6)', 'PM (n=3)', 'SES Opt.', 'Naïve', 'Holt Lineal'],
-        vals: [10.44, 11.82, 12.15, 12.40, 12.95, 13.60, 14.12, 14.12, 14.35],
-        color: '#7c3aed'
+        productName: 'Paleta de Colores', realSeries: BR_PAL, color: '#7c3aed',
+        models: [
+          { name: 'Fourier K = 2', type: 'Modelo Adicional (Armónico)', mape: '10,44%', mad: '8,24', mse: '114,51', me: '+5,55', fore: '82,5 pts', curve: CURVES_PAL.fourier, note: 'Ganador absoluto del estudio: captura con alta precisión el ciclo estacional de maquillaje sin sobreajustar el ruido semanal.' },
+          { name: 'Regresión Lineal', type: 'Modelo Base (Tendencia)', mape: '11,82%', mad: '9,18', mse: '132,40', me: '+6,84', fore: '75,2 pts', curve: CURVES_PAL.lin, note: 'Confirma la pendiente positiva estructural (+6,5% anual), aunque subestima los repuntes de cierre de año.' },
+          { name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)', mape: '12,15%', mad: '9,45', mse: '141,10', me: '+7,10', fore: '74,8 pts', curve: CURVES_PAL.holtDamp, note: 'Modera la pendiente hacia el horizonte futuro evitando proyecciones explosivas.' },
+          { name: 'ARIMA(1,1,1)', type: 'Modelo Adicional (Autoregresivo)', mape: '12,40%', mad: '9,62', mse: '146,85', me: '+7,35', fore: '74,4 pts', curve: CURVES_PAL.arima, note: 'Modela bien la autocorrelación de corto plazo entre semanas consecutivas.' },
+          { name: 'Promedio Móvil (n = 6)', type: 'Modelo Base (Suavizado)', mape: '12,95%', mad: '10,08', mse: '158,20', me: '+8,42', fore: '69,3 pts', curve: CURVES_PAL.pm6, note: 'Suaviza las fluctuaciones semanales pero reacciona con rezago ante el repunte de noviembre.' },
+          { name: 'Promedio Móvil (n = 3)', type: 'Modelo Base (Suavizado)', mape: '13,60%', mad: '10,55', mse: '169,40', me: '+7,95', fore: '70,3 pts', curve: CURVES_PAL.pm3, note: 'Responde más rápido que PM(6) pero mantiene sesgo subestimador en temporada alta.' },
+          { name: 'SES (Suav. Exp. Simple)', type: 'Modelo Base (Nivel)', mape: '14,12%', mad: '10,94', mse: '182,15', me: '+8,88', fore: '69,8 pts', curve: CURVES_PAL.ses, note: 'Proyecta un nivel plano desde el cierre del entrenamiento; útil como referencia conservadora.' },
+          { name: 'Naïve (Último Valor)', type: 'Modelo Base (Referencia)', mape: '14,12%', mad: '10,95', mse: '183,00', me: '+4,88', fore: '74,0 pts', curve: CURVES_PAL.naive, note: 'Benchmark mínimo de comparación; cualquier modelo válido debe superar su error.' },
+          { name: 'Holt Lineal', type: 'Modelo Base (Nivel + Tendencia)', mape: '14,35%', mad: '11,12', mse: '188,60', me: '+6,20', fore: '76,1 pts', curve: CURVES_PAL.holtLin, note: 'Sensible al último tramo de entrenamiento antes del repunte de noviembre.' }
+        ]
       },
       hum: {
-        title: 'Ranking de Error MAPE (%) — Mini Humidificador USB',
-        labels: ['ARIMA(1,1,1)', 'Holt Damped', 'SES Opt.', 'PM (n=6)', 'Reg. Lineal', 'PM (n=3)', 'Fourier K=2', 'Holt Lineal', 'Naïve'],
-        vals: [17.67, 18.42, 19.15, 19.80, 20.34, 21.10, 21.85, 22.40, 23.15],
-        color: '#2563eb'
+        productName: 'Mini Humidificador USB', realSeries: BR_HUM, color: '#2563eb',
+        models: [
+          { name: 'ARIMA(1,1,1)', type: 'Modelo Adicional (Autoregresivo)', mape: '17,67%', mad: '9,85', mse: '164,30', me: '+3,12', fore: '53,7 pts', curve: CURVES_HUM.arima, note: 'Ganador del Mini Humidificador: absorbe mejor los cambios bruscos de nivel tras los picos estacionales.' },
+          { name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)', mape: '18,42%', mad: '10,25', mse: '175,80', me: '+2,85', fore: '54,9 pts', curve: CURVES_HUM.holtDamp, note: 'Segundo mejor ajuste; amortigua el impulso tras los picos de agosto y septiembre.' },
+          { name: 'SES (Suav. Exp. Simple)', type: 'Modelo Base (Nivel)', mape: '19,15%', mad: '10,68', mse: '189,40', me: '+1,90', fore: '55,4 pts', curve: CURVES_HUM.ses, note: 'Estabiliza la serie alrededor de su media histórica (~49–55 pts).' },
+          { name: 'Promedio Móvil (n = 6)', type: 'Modelo Base (Suavizado)', mape: '19,80%', mad: '11,05', mse: '201,15', me: '+1,45', fore: '56,0 pts', curve: CURVES_HUM.pm6, note: 'Filtra eficazmente los picos aislados pero aplana el repunte de cierre.' },
+          { name: 'Regresión Lineal', type: 'Modelo Base (Tendencia)', mape: '20,34%', mad: '11,38', mse: '212,60', me: '+2,40', fore: '52,8 pts', curve: CURVES_HUM.lin, note: 'Refleja una tendencia positiva moderada (+5,0% anual) a lo largo de las 53 semanas.' },
+          { name: 'Promedio Móvil (n = 3)', type: 'Modelo Base (Suavizado)', mape: '21,10%', mad: '11,82', mse: '226,40', me: '-1,80', fore: '58,0 pts', curve: CURVES_HUM.pm3, note: 'Arrastra el pico de la semana 45 hacia las primeras semanas de validación.' },
+          { name: 'Fourier K = 2', type: 'Modelo Adicional (Armónico)', mape: '21,85%', mad: '12,15', mse: '238,90', me: '+4,10', fore: '56,2 pts', curve: CURVES_HUM.fourier, note: 'Captura la onda semestral, aunque los picos climáticos del humidificador son menos periódicos.' },
+          { name: 'Holt Lineal', type: 'Modelo Base (Nivel + Tendencia)', mape: '22,40%', mad: '12,50', mse: '249,10', me: '-2,95', fore: '59,4 pts', curve: CURVES_HUM.holtLin, note: 'Tiende a sobreproyectar cuando el cierre de entrenamiento coincide con un pico.' },
+          { name: 'Naïve (Último Valor)', type: 'Modelo Base (Referencia)', mape: '23,15%', mad: '12,92', mse: '264,50', me: '-32,75', fore: '86,0 pts', curve: CURVES_HUM.naive, note: 'Queda anclado en el pico atípico de la semana 45 (86 pts), generando un sesgo elevado.' }
+        ]
       },
       rep: {
-        title: 'Ranking de Error MAPE (%) — Repelente Ultrasónico',
-        labels: ['Fourier K=2', 'Holt Damped', 'ARIMA(1,1,1)', 'PM (n=3)', 'Naïve', 'SES Opt.', 'Holt Lineal', 'PM (n=6)', 'Reg. Lineal'],
-        vals: [19.69, 21.40, 22.15, 23.80, 24.50, 24.50, 25.10, 27.60, 38.90],
-        color: '#dc2626'
+        productName: 'Repelente Ultrasónico', realSeries: BR_REP, color: '#dc2626',
+        models: [
+          { name: 'Fourier K = 2', type: 'Modelo Adicional (Armónico)', mape: '19,69%', mad: '9,42', mse: '148,70', me: '+2,85', fore: '68,5 pts', curve: CURVES_REP.fourier, note: 'Mejor ajuste para el Repelente al capturar la estacionalidad de verano (dic–feb) frente al invierno.' },
+          { name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)', mape: '21,40%', mad: '10,35', mse: '176,20', me: '+4,90', fore: '46,8 pts', curve: CURVES_REP.holtDamp, note: 'Controla la caída pronunciada evitando que el pronóstico se vaya a cero.' },
+          { name: 'ARIMA(1,1,1)', type: 'Modelo Adicional (Autoregresivo)', mape: '22,15%', mad: '10,72', mse: '188,45', me: '+5,60', fore: '48,2 pts', curve: CURVES_REP.arima, note: 'Sigue la inercia reciente pero tarda en anticipar el rebote de noviembre.' },
+          { name: 'Promedio Móvil (n = 3)', type: 'Modelo Base (Suavizado)', mape: '23,80%', mad: '11,55', mse: '215,30', me: '+7,40', fore: '43,0 pts', curve: CURVES_REP.pm3, note: 'Queda rezagado frente al cambio de estación en octubre–noviembre.' },
+          { name: 'Naïve (Último Valor)', type: 'Modelo Base (Referencia)', mape: '24,50%', mad: '11,90', mse: '229,10', me: '+0,88', fore: '49,0 pts', curve: CURVES_REP.naive, note: 'Mantiene constante el valor de la semana 45 (49 pts) sin capturar la recuperación final.' },
+          { name: 'SES (Suav. Exp. Simple)', type: 'Modelo Base (Nivel)', mape: '24,50%', mad: '11,92', mse: '230,05', me: '+6,85', fore: '42,6 pts', curve: CURVES_REP.ses, note: 'Promedia niveles bajos del invierno austral subestimando el cierre.' },
+          { name: 'Holt Lineal', type: 'Modelo Base (Nivel + Tendencia)', mape: '25,10%', mad: '12,24', mse: '242,80', me: '+6,10', fore: '45,5 pts', curve: CURVES_REP.holtLin, note: 'Inestable por los cambios de pendiente entre verano e invierno.' },
+          { name: 'Promedio Móvil (n = 6)', type: 'Modelo Base (Suavizado)', mape: '27,60%', mad: '13,48', mse: '286,40', me: '+9,85', fore: '39,8 pts', curve: CURVES_REP.pm6, note: 'Demasiado lento para una serie con alta volatilidad estacional (CV 36,65%).' },
+          { name: 'Regresión Lineal', type: 'Modelo Base (Tendencia)', mape: '38,90%', mad: '18,95', mse: '492,10', me: '+24,60', fore: '21,4 pts', curve: CURVES_REP.lin, note: 'Peor ajuste: arrastra la fuerte caída de enero a julio (-71,6% anual) y subestima el rebote final.' }
+        ]
       }
     };
-    let modelsChart;
-    function renderModelTab(key, btn) {
+
+    let currentProdKey = 'pal', currentModelIdx = 0, modelTrendChart;
+
+    function selectModelProduct(prodKey, btn) {
+      currentProdKey = prodKey; currentModelIdx = 0;
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
-      const d = MODEL_DATA[key];
-      document.getElementById('modelChartTitle').textContent = d.title;
-      if (modelsChart) modelsChart.destroy();
-      modelsChart = new Chart(document.getElementById('chartModels'), {
-        type: 'bar',
+      renderSelectedModelChart(0);
+    }
+
+    function renderRankList() {
+      const cat = MODELS_CATALOG[currentProdKey];
+      document.getElementById('rankPanelProduct').textContent = 'Ranking — ' + cat.productName;
+      document.getElementById('modelRankList').innerHTML = cat.models.map((m, idx) => `
+        <li class="rank-item ${idx === 0 ? 'top1' : ''} ${idx === currentModelIdx ? 'selected' : ''}" onclick="renderSelectedModelChart(${idx})">
+          <div style="display:flex;align-items:center;gap:0.65rem;">
+            <span class="rank-pos">#${idx + 1}</span>
+            <div><span class="rank-name">${m.name}</span><span class="rank-type">${m.type}</span></div>
+          </div>
+          <span class="rank-mape">${m.mape}</span>
+        </li>
+      `).join('');
+    }
+
+    function renderSelectedModelChart(idx) {
+      currentModelIdx = idx;
+      renderRankList();
+      const cat = MODELS_CATALOG[currentProdKey];
+      const m = cat.models[idx];
+      document.getElementById('selectedModelTitle').textContent = `Modelo #${idx + 1}: ${m.name}`;
+      document.getElementById('selectedModelSub').textContent = `${cat.productName} · ${m.type}`;
+      const badge = document.getElementById('selectedModelBadge');
+      if (idx === 0) { badge.className = 'pill pill-green'; badge.textContent = '🏆 Puesto #1 · Más Efectivo'; }
+      else if (idx <= 2) { badge.className = 'pill pill-violet'; badge.textContent = `Podio Top #${idx + 1}`; }
+      else { badge.className = 'pill pill-amber'; badge.textContent = `Puesto #${idx + 1} de 9`; }
+
+      document.getElementById('tmMape').textContent = m.mape;
+      document.getElementById('tmMad').textContent = m.mad;
+      document.getElementById('tmMse').textContent = m.mse;
+      document.getElementById('tmMe').textContent = m.me;
+      document.getElementById('tmFore').textContent = m.fore;
+      document.getElementById('selectedModelNote').innerHTML = `<strong>Interpretación del ajuste:</strong> ${m.note}`;
+
+      const real57 = [...cat.realSeries, null, null, null, null];
+      const fit53 = [...m.curve.slice(0, 53), null, null, null, null];
+      const fore57 = Array(52).fill(null).concat(m.curve.slice(52, 57));
+
+      if (modelTrendChart) modelTrendChart.destroy();
+      modelTrendChart = new Chart(document.getElementById('modelTrendCanvas'), {
+        type: 'line',
         data: {
-          labels: d.labels,
-          datasets: [{
-            label: 'MAPE (%)',
-            data: d.vals,
-            backgroundColor: d.vals.map((_, i) => i === 0 ? '#059669' : d.color)
-          }]
+          labels: DATES_57,
+          datasets: [
+            { label: 'Demanda Real Brasil (Sem. 1–53)', data: real57, borderColor: '#0f172a', borderWidth: 2.3, pointRadius: 1.5, tension: 0.2 },
+            { label: `Curva ${m.name} (Entrenamiento + Validación)`, data: fit53, borderColor: cat.color, borderWidth: 2.5, pointRadius: 0, tension: 0.25 },
+            { label: 'Pronóstico Futuro (Sem. 54–57)', data: fore57, borderColor: '#059669', backgroundColor: '#059669', borderWidth: 2.8, borderDash: [6, 4], pointRadius: 4, tension: 0.2 }
+          ]
         },
         options: {
-          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { x: { beginAtZero: true } }
+          responsive: true, maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: { legend: { position: 'bottom', labels: { boxWidth: 14, font: { size: 11 } } } },
+          scales: { x: { ticks: { maxTicksLimit: 10, font: { size: 10 } } }, y: { min: 0, max: 110 } }
         }
       });
     }
-    renderModelTab('pal');
+    selectModelProduct('pal');
 
-    /* 3. SIMULADOR DE VIABILIDAD (ETAPA 7) */
     function runSimulator() {
+      const val = id => parseFloat(document.getElementById(id).value);
       const items = [
-        { name: 'Repelente Ultrasónico', g: parseFloat(gA.value), e: parseFloat(eA.value), c: parseFloat(cA.value) },
-        { name: 'Paleta de Colores', g: parseFloat(gB.value), e: parseFloat(eB.value), c: parseFloat(cB.value) },
-        { name: 'Mini Humidificador USB', g: parseFloat(gC.value), e: parseFloat(eC.value), c: parseFloat(cC.value) }
-      ].map(x => ({ ...x, score: +(x.g * 2.0 - x.e * 1.5 - x.c * 0.25).toFixed(2) }))
-       .sort((a, b) => b.score - a.score);
+        { name: 'Repelente Ultrasónico', g: val('gA'), e: val('eA'), c: val('cA') },
+        { name: 'Paleta de Colores', g: val('gB'), e: val('eB'), c: val('cB') },
+        { name: 'Mini Humidificador USB', g: val('gC'), e: val('eC'), c: val('cC') }
+      ].map(x => ({ ...x, score: +(x.g * 2.0 - x.e * 1.5 - x.c * 0.25).toFixed(2) })).sort((a, b) => b.score - a.score);
       document.getElementById('simOutput').innerHTML = `
-        <div style="font-size:1.1rem;font-weight:800;color:#4c1d95;margin-bottom:0.4rem;">🏆 Producto Ganador: ${items[0].name} (Puntaje: ${items[0].score})</div>
-        <div style="font-size:0.88rem;color:#334e68;">
-          1. <strong>${items[0].name}</strong>: ${items[0].score} pts &nbsp;|&nbsp;
-          2. <strong>${items[1].name}</strong>: ${items[1].score} pts &nbsp;|&nbsp;
-          3. <strong>${items[2].name}</strong>: ${items[2].score} pts
-        </div>`;
+        <div style="font-size:1.08rem;font-weight:800;color:#4c1d95;margin-bottom:0.35rem;">🏆 Producto Ganador: ${items[0].name} (Puntaje: ${items[0].score})</div>
+        <div style="font-size:0.88rem;color:#334e68;">1. <strong>${items[0].name}</strong>: ${items[0].score} pts &nbsp;|&nbsp; 2. <strong>${items[1].name}</strong>: ${items[1].score} pts &nbsp;|&nbsp; 3. <strong>${items[2].name}</strong>: ${items[2].score} pts</div>`;
     }
     function resetSimulator() {
-      gA.value = -71.6; eA.value = 19.69; cA.value = 3.05;
-      gB.value = 6.5;   eB.value = 10.44; cB.value = 3.39;
-      gC.value = 5.0;   eC.value = 17.67; cC.value = 5.27;
+      document.getElementById('gA').value = -71.6; document.getElementById('eA').value = 19.69; document.getElementById('cA').value = 3.05;
+      document.getElementById('gB').value = 6.5;   document.getElementById('eB').value = 10.44; document.getElementById('cB').value = 3.39;
+      document.getElementById('gC').value = 5.0;   document.getElementById('eC').value = 17.67; document.getElementById('cC').value = 5.27;
       runSimulator();
     }
     runSimulator();
 
-    /* ======= DASHBOARD FINAL: PALETA DE COLORES ======= */
     const BI_GEO = {
-      ww: {
-        title: 'Demanda Geográfica — Todo el Mundo (Top 10)',
-        labels: ['Chile','México','Brasil','Perú','Colombia','Paraguay','Uruguay','España','Argentina','Bolivia'],
-        values: [100, 69, 57, 51, 49, 36, 35, 33, 32, 29]
-      },
-      br: {
-        title: 'Demanda Geográfica — Brasil (Top 10 Estados)',
-        labels: ['Paraíba','Distrito Federal','Río Grande del Norte','Acre','São Paulo','Pernambuco','Santa Catarina','Ceará','Espírito Santo','Río de Janeiro'],
-        values: [100, 99, 87, 84, 83, 80, 80, 78, 76, 76]
-      }
+      ww: { title: 'Demanda Geográfica — Todo el Mundo (Top 10)', labels: ['Chile','México','Brasil','Perú','Colombia','Paraguay','Uruguay','España','Argentina','Bolivia'], values: [100,69,57,51,49,36,35,33,32,29] },
+      br: { title: 'Demanda Geográfica — Brasil (Top 10 Estados)', labels: ['Paraíba','Distrito Federal','Río Grande del Norte','Acre','São Paulo','Pernambuco','Santa Catarina','Ceará','Espírito Santo','Río de Janeiro'], values: [100,99,87,84,83,80,80,78,76,76] }
     };
     let biGeoChart;
     function switchBiGeo(mode) {
@@ -877,101 +810,45 @@
       if (biGeoChart) biGeoChart.destroy();
       biGeoChart = new Chart(document.getElementById('biGeoChart'), {
         type: 'bar',
-        data: {
-          labels: BI_GEO[mode].labels,
-          datasets: [{
-            label: 'Intención de Compra (0–100)',
-            data: BI_GEO[mode].values,
-            backgroundColor: mode === 'ww' ? '#8b5cf6' : '#10b981',
-            borderRadius: 6
-          }]
-        },
-        options: {
-          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            x: { max: 105, ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } },
-            y: { ticks: { color: '#f1f5f9', font: { size: 11 } }, grid: { display: false } }
-          }
-        }
+        data: { labels: BI_GEO[mode].labels, datasets: [{ data: BI_GEO[mode].values, backgroundColor: mode === 'ww' ? '#8b5cf6' : '#10b981', borderRadius: 6 }] },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { max: 105, ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } }, y: { ticks: { color: '#f1f5f9', font: { size: 11 } }, grid: { display: false } } } }
       });
     }
     switchBiGeo('ww');
 
     new Chart(document.getElementById('biScoreChart'), {
       type: 'bar',
-      data: {
-        labels: ['Paleta de Colores', 'Mini Humidificador', 'Repelente Ultrasónico'],
-        datasets: [{
-          label: 'Score Simulador',
-          data: [-3.51, -17.82, -173.5],
-          backgroundColor: ['#8b5cf6', '#10b981', '#ef4444'],
-          borderRadius: 8
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: '#f1f5f9' }, grid: { display: false } },
-          y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } }
-        }
-      }
+      data: { labels: ['Paleta de Colores','Mini Humidificador','Repelente Ultrasónico'], datasets: [{ data: [-3.51,-17.82,-173.5], backgroundColor: ['#8b5cf6','#10b981','#ef4444'], borderRadius: 8 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#f1f5f9' }, grid: { display: false } }, y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } } } }
     });
 
     new Chart(document.getElementById('biReviewChart'), {
       type: 'doughnut',
-      data: {
-        labels: ['5 Estrellas (2.546)', '4 Estrellas (389)', '3 Estrellas (199)', '2 Estrellas (89)', '1 Estrella (135)'],
-        datasets: [{
-          data: [2546, 389, 199, 89, 135],
-          backgroundColor: ['#10b981', '#34d399', '#fbbf24', '#f97316', '#ef4444'],
-          borderColor: '#0b1f33', borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false, cutout: '62%',
-        plugins: { legend: { position: 'right', labels: { color: '#e2e8f0', boxWidth: 12, font: { size: 11 } } } }
-      }
+      data: { labels: ['5 Estrellas (2.546)','4 Estrellas (389)','3 Estrellas (199)','2 Estrellas (89)','1 Estrella (135)'], datasets: [{ data: [2546,389,199,89,135], backgroundColor: ['#10b981','#34d399','#fbbf24','#f97316','#ef4444'], borderColor: '#0b1f33', borderWidth: 2 }] },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '62%', plugins: { legend: { position: 'right', labels: { color: '#e2e8f0', boxWidth: 12, font: { size: 11 } } } } }
     });
 
     new Chart(document.getElementById('biStabilityChart'), {
       type: 'bar',
-      data: {
-        labels: ['Media', 'Mínimo', 'Máximo', 'CV (%)'],
-        datasets: [
-          { label: 'Todo el Mundo', data: [74.55, 57, 100, 14.80], backgroundColor: '#60a5fa', borderRadius: 6 },
-          { label: 'Brasil', data: [70.17, 51, 100, 16.37], backgroundColor: '#a78bfa', borderRadius: 6 }
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { labels: { color: '#e2e8f0' } } },
-        scales: {
-          x: { ticks: { color: '#f1f5f9' }, grid: { display: false } },
-          y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } }
-        }
-      }
+      data: { labels: ['Media','Mínimo','Máximo','CV (%)'], datasets: [{ label: 'Todo el Mundo', data: [74.55,57,100,14.8], backgroundColor: '#60a5fa', borderRadius: 6 }, { label: 'Brasil', data: [70.17,51,100,16.37], backgroundColor: '#a78bfa', borderRadius: 6 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#e2e8f0' } } }, scales: { x: { ticks: { color: '#f1f5f9' }, grid: { display: false } }, y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } } } }
     });
 
     function calcImportSim() {
       const units = +document.getElementById('slUnits').value;
       const pvp = +document.getElementById('slPvp').value;
       const logPct = +document.getElementById('slLog').value;
-      const unitCost = 14258.55;
       const fmt = v => '$' + Math.round(v).toLocaleString('es-CO');
-      const inv = units * unitCost * (1 + logPct / 100);
+      const inv = units * 14258.55 * (1 + logPct / 100);
       const rev = units * pvp;
       const prof = rev - inv;
-      const marg = (prof / rev) * 100;
-
       document.getElementById('lblUnits').textContent = units + ' uds';
       document.getElementById('lblPvp').textContent = fmt(pvp) + ' COP';
       document.getElementById('lblLog').textContent = logPct + '%';
       document.getElementById('outInv').textContent = fmt(inv);
       document.getElementById('outRev').textContent = fmt(rev);
       document.getElementById('outProf').textContent = fmt(prof);
-      document.getElementById('outMarg').textContent = marg.toFixed(1) + '%';
+      document.getElementById('outMarg').textContent = ((prof / rev) * 100).toFixed(1) + '%';
     }
     calcImportSim();
   </script>
