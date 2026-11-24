@@ -430,7 +430,7 @@
     }
     .chart-box-lg {
       position: relative;
-      height: 340px;
+      height: 370px;
       width: 100%;
     }
     .chart-box-sm {
@@ -653,8 +653,8 @@
       <button class="btn-outline" onclick="printFullReport()">🖨 Imprimir / Guardar PDF Completo</button>
     </div>
     <div class="hero-meta">
-      <div><strong>Autor:</strong> José Manuel Vargas Ospina</div>
-      <div><strong>Programa:</strong> Administración Financiera — Análisis de Datos (Universidad del Tolima)</div>
+      <div><strong>Grupo de trabajo:</strong> José Manuel Vargas Ospina · Mauricio Ticora Rodríguez</div>
+      <div><strong>Programa:</strong> Análisis de Datos y Fundamentos en Power BI (Universidad del Tolima)</div>
       <div><strong>Fecha de corte:</strong> 23 de noviembre de 2026</div>
       <div><strong>Productos:</strong> Repelente Ultrasónico · Paleta de Sombras 40 col. · Mini Humidificador USB</div>
     </div>
@@ -822,7 +822,7 @@
 
     <div class="card">
       <h3>3.3 Concentración Geográfica (Top 6 Países Mundiales y Top 6 Estados de Brasil)</h3>
-      <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">En los rankings mundiales, <strong>Colombia</strong> figura en el <strong>Top 5</strong> tanto en <strong>Humidificador (#5, 61 pts)</strong> como en <strong>Paleta de sombras (#5, 49 pts)</strong>, mientras que en <strong>Repelente</strong> ocupa el puesto #14 (41 pts).</p>
+      <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">En los rankings mundiales, <strong>Brasil</strong> (mercado referente de nuestro estudio, resaltado en naranja) ocupa el <strong>Top 3 global</strong> tanto en <strong>Repelente (#2, 95 pts)</strong> como en <strong>Paleta de sombras (#3, 57 pts)</strong>. En <strong>Humidificador</strong> no aparece en el Top 6 mundial por la diferencia ortográfica en portugués (<em>umidificador</em>), por lo que su demanda territorial se valida directamente en los 23 estados registrados en el panel inferior de Brasil.</p>
       <div class="grid-3">
         <div><div class="chart-box-sm"><canvas id="chartRegWWRep"></canvas></div></div>
         <div><div class="chart-box-sm"><canvas id="chartRegWWPal"></canvas></div></div>
@@ -1101,7 +1101,7 @@
 </main>
 
 <footer>
-  <strong>Universidad del Tolima</strong> · Administración Financiera — Análisis de Datos · Autor: <strong>José Manuel Vargas Ospina</strong> · Noviembre de 2026.
+  <strong>Universidad del Tolima</strong> · Análisis de Datos y Fundamentos en Power BI · Grupo de trabajo: <strong>José Manuel Vargas Ospina</strong> y <strong>Mauricio Ticora Rodríguez</strong> · Noviembre de 2026.
 </footer>
 
 <script>
@@ -1122,15 +1122,15 @@ function initEtapa3Charts() {
     data: {
       labels: shortDates,
       datasets: [
-        { label: 'A: Repelente (Media 75,6)', data: DATA.wwIndiv.rep, borderColor: '#d9534f', backgroundColor: 'rgba(217,83,79,0.08)', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
-        { label: 'B: Paleta (Media 74,5)', data: DATA.wwIndiv.pal, borderColor: '#8e44ad', backgroundColor: 'rgba(142,68,173,0.08)', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
-        { label: 'C: Humidificador (Media 71,2)', data: DATA.wwIndiv.hum, borderColor: '#2980b9', backgroundColor: 'rgba(41,128,185,0.08)', borderWidth: 2, pointRadius: 1.5, tension: 0.2 }
+        { label: 'A: Repelente (75,6)', data: DATA.wwIndiv.rep, borderColor: '#d9534f', backgroundColor: 'rgba(217,83,79,0.08)', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
+        { label: 'B: Paleta (74,5)', data: DATA.wwIndiv.pal, borderColor: '#8e44ad', backgroundColor: 'rgba(142,68,173,0.08)', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
+        { label: 'C: Humidificador (71,2)', data: DATA.wwIndiv.hum, borderColor: '#2980b9', backgroundColor: 'rgba(41,128,185,0.08)', borderWidth: 2, pointRadius: 1.5, tension: 0.2 }
       ]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
       scales: { y: { min: 0, max: 105, title: { display: true, text: 'Índice (0–100)' } }, x: { ticks: { maxTicksLimit: 10 } } },
-      plugins: { legend: { position: 'bottom' } }
+      plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } } }
     }
   });
 
@@ -1139,20 +1139,20 @@ function initEtapa3Charts() {
     data: {
       labels: shortDates,
       datasets: [
-        { label: 'A: Repelente (Media 50,8)', data: DATA.brIndiv.rep, borderColor: '#d9534f', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
-        { label: 'B: Paleta (Media 70,2)', data: DATA.brIndiv.pal, borderColor: '#8e44ad', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
-        { label: 'C: Humidificador (Media 49,1)', data: DATA.brIndiv.hum, borderColor: '#2980b9', borderWidth: 2, pointRadius: 1.5, tension: 0.2 }
+        { label: 'A: Repelente (50,8)', data: DATA.brIndiv.rep, borderColor: '#d9534f', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
+        { label: 'B: Paleta (70,2)', data: DATA.brIndiv.pal, borderColor: '#8e44ad', borderWidth: 2, pointRadius: 1.5, tension: 0.2 },
+        { label: 'C: Humidificador (49,1)', data: DATA.brIndiv.hum, borderColor: '#2980b9', borderWidth: 2, pointRadius: 1.5, tension: 0.2 }
       ]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
       scales: { y: { min: 0, max: 105, title: { display: true, text: 'Índice (0–100)' } }, x: { ticks: { maxTicksLimit: 10 } } },
-      plugins: { legend: { position: 'bottom' } }
+      plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } } }
     }
   });
 
   function makeRegBar(canvasId, title, regObj, baseColor) {
-    const bgColors = regObj.labels.map(lbl => lbl === 'Colombia' ? '#f39c12' : baseColor);
+    const bgColors = regObj.labels.map(lbl => lbl === 'Brasil' ? '#f39c12' : baseColor);
     new Chart(document.getElementById(canvasId), {
       type: 'bar',
       data: {
@@ -1166,9 +1166,9 @@ function initEtapa3Charts() {
       }
     });
   }
-  makeRegBar('chartRegWWRep', 'Mundo: Repelente (Top 6)', DATA.regions.ww_rep, '#d9534f');
-  makeRegBar('chartRegWWPal', 'Mundo: Paleta (Top 6 · Naranja: Colombia)', DATA.regions.ww_pal, '#8e44ad');
-  makeRegBar('chartRegWWHum', 'Mundo: Humidificador (Top 6 · Naranja: Colombia)', DATA.regions.ww_hum, '#2980b9');
+  makeRegBar('chartRegWWRep', 'Mundo: Repelente (Top 6 · Naranja: Brasil)', DATA.regions.ww_rep, '#d9534f');
+  makeRegBar('chartRegWWPal', 'Mundo: Paleta (Top 6 · Naranja: Brasil)', DATA.regions.ww_pal, '#8e44ad');
+  makeRegBar('chartRegWWHum', 'Mundo: Humidificador (Top 6 Países)', DATA.regions.ww_hum, '#2980b9');
   makeRegBar('chartRegBRRep', 'Brasil: Repelente (Top 6 Estados)', DATA.regions.br_rep, '#d9534f');
   makeRegBar('chartRegBRPal', 'Brasil: Paleta (Top 6 Estados)', DATA.regions.br_pal, '#8e44ad');
   makeRegBar('chartRegBRHum', 'Brasil: Humidificador (Top 6 Estados)', DATA.regions.br_hum, '#2980b9');
@@ -1186,7 +1186,7 @@ function initEtapa3Charts() {
     options: {
       responsive: true, maintainAspectRatio: false,
       scales: { y: { min: 0, max: 105 }, x: { ticks: { maxTicksLimit: 9 } } },
-      plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Comparación Cruzada — Todo el Mundo', font: { weight: 'bold' } } }
+      plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } }, title: { display: true, text: 'Comparación Cruzada — Todo el Mundo', font: { weight: 'bold' } } }
     }
   });
 
@@ -1203,7 +1203,7 @@ function initEtapa3Charts() {
     options: {
       responsive: true, maintainAspectRatio: false,
       scales: { y: { min: 0, max: 105 }, x: { ticks: { maxTicksLimit: 9 } } },
-      plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Comparación Cruzada — Brasil', font: { weight: 'bold' } } }
+      plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } }, title: { display: true, text: 'Comparación Cruzada — Brasil', font: { weight: 'bold' } } }
     }
   });
 }
@@ -1247,7 +1247,7 @@ function initMapeSummary() {
         y: { beginAtZero: true, title: { display: true, text: 'MAPE en Validación (%) — Menor es mejor' } }
       },
       plugins: {
-        legend: { position: 'bottom' },
+        legend: { position: 'top', labels: { boxWidth: 12, padding: 10, font: { size: 11 } } },
         tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%` } }
       }
     }
@@ -1403,7 +1403,7 @@ function buildAll27Models() {
             y: { min: 0, max: 108, title: { display: true, text: 'Índice (0–100)' } },
             x: { ticks: { maxTicksLimit: 9 } }
           },
-          plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10.5 } } } }
+          plugins: { legend: { position: 'top', labels: { boxWidth: 12, padding: 8, font: { size: 10.5 } } } }
         }
       });
       chartInstances[m.id] = ch;
