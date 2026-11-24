@@ -217,7 +217,7 @@
       <div class="badge">Proyecto Final · Investigación de Mercados y Pronósticos de Demanda</div>
       <h1>Evaluación Comercial, Tendencias Digitales y Modelado Cuantitativo de Tres Productos de Importación</h1>
       <p>
-        Estudio integral que articula la investigación comercial y de proveedores en AliExpress, el análisis de tendencias en Google Trends (Todo el Mundo y Brasil como mercado referente), la auditoría de series semanales (53 semanas), la evaluación de 27 modelos de pronóstico y el Simulador de Viabilidad Integral.
+        Estudio integral que articula la investigación comercial y de proveedores en AliExpress, el análisis de tendencias en Google Trends (Todo el Mundo y Brasil como mercado referente), la auditoría de series semanales (53 semanas), la evaluación de 27 modelos de pronóstico con validación paso a paso (Rolling Forecast) y el Simulador de Viabilidad Integral.
       </p>
       <div class="hero-actions">
         <a href="Investigacion_Mercados_Pronosticos_y_Matriz_Decision.xlsx" class="btn btn-primary">⬇ Descargar Excel (.xlsx)</a>
@@ -245,7 +245,7 @@
         <div class="kpi-card violet">
           <div class="kpi-label">Ganador Simulador Cuantitativo</div>
           <div class="kpi-val">Paleta de Colores</div>
-          <div class="kpi-sub">Pendiente <strong>+6,5%</strong> · Error MAPE <strong>10,44%</strong> · Costo <strong>$3,39 USD</strong></div>
+          <div class="kpi-sub">Pendiente <strong>+6,5%</strong> · Error MAPE <strong>10,91%</strong> · Costo <strong>$3,39 USD</strong></div>
         </div>
         <div class="kpi-card emerald">
           <div class="kpi-label">Líder Comercial y Operativo</div>
@@ -255,7 +255,7 @@
         <div class="kpi-card">
           <div class="kpi-label">Modelos Evaluados</div>
           <div class="kpi-val">27 Modelos</div>
-          <div class="kpi-sub">6 Base + 3 Adicionales × 3 Productos (Validación Sem. 46–53)</div>
+          <div class="kpi-sub">6 Base + 3 Adicionales × 3 Productos (Rolling Sem. 46–53)</div>
         </div>
         <div class="kpi-card amber">
           <div class="kpi-label">Calidad de Series Históricas</div>
@@ -264,7 +264,7 @@
         </div>
       </div>
       <div class="callout">
-        <strong>Síntesis de Decisión:</strong> En el <strong>Simulador de Viabilidad Integral</strong>, la <strong>Paleta de Colores</strong> obtiene el mejor equilibrio cuantitativo (crecimiento anual <strong>+6,5%</strong>, menor error del estudio con <strong>MAPE 10,44%</strong> y costo de <strong>$3,39 USD</strong>). Operativamente, el <strong>Mini Humidificador USB</strong> (+100.000 ventas, proveedor de 9,39 años, USB 5V y sin barrera sanitaria INVIMA) representa la alternativa más ágil de importación, mientras que el <strong>Repelente Ultrasónico</strong> queda descartado por pendiente negativa (-71,6%), incompatibilidad eléctrica (220V vs. 110V) y 13,68% de reseñas negativas por ineficacia.
+        <strong>Síntesis de Decisión:</strong> En el <strong>Simulador de Viabilidad Integral</strong>, la <strong>Paleta de Colores</strong> obtiene el mejor equilibrio cuantitativo (crecimiento anual <strong>+6,5%</strong>, menor error del estudio con <strong>MAPE 10,91%</strong> bajo <em>Holt Amortiguado</em> y costo de <strong>$3,39 USD</strong>). Operativamente, el <strong>Mini Humidificador USB</strong> (+100.000 ventas, proveedor de 9,39 años, USB 5V y sin barrera sanitaria INVIMA) representa la alternativa más ágil de importación, mientras que el <strong>Repelente Ultrasónico</strong> queda descartado por pendiente negativa (-71,6%), incompatibilidad eléctrica (220V vs. 110V) y 13,68% de reseñas negativas por ineficacia.
       </div>
     </section>
 
@@ -366,17 +366,17 @@
         </table>
       </div>
       <p style="font-size:0.88rem;color:var(--slate);">
-        <strong>Backtesting:</strong> Entrenamiento en Semanas 1–45 (84,9%), validación fuera de muestra en Semanas 46–53 (15,1%) para calcular <strong>MAPE, MAD, MSE y ME</strong>, y proyección a Semanas 54–57 (diciembre de 2026).
+        <strong>Backtesting (Rolling Forecast):</strong> Entrenamiento inicial en Semanas 1–45 (84,9%), validación paso a paso en Semanas 46–53 (15,1%) incorporando cada dato real para calcular <strong>MAPE, MAD, MSE y ME</strong>, y proyección a Semanas 54–57 (diciembre de 2026) actualizada con las 53 semanas reales.
       </p>
     </section>
 
     <section id="etapa56" class="block">
       <div class="sec-head">
         <h2>Etapas 5 y 6: Explorador Interactivo de los 27 Modelos de Pronóstico</h2>
-        <span class="sec-tag">Ranking por Efectividad + Curva de Tendencia</span>
+        <span class="sec-tag">Rolling Forecast + Ranking Dinámico</span>
       </div>
       <p style="font-size:0.9rem;color:var(--slate);margin-bottom:0.8rem;">
-        Selecciona un producto y haz clic sobre cualquiera de los <strong>9 modelos ordenados del #1 al #9 según su efectividad (menor MAPE)</strong> para visualizar su curva histórica (Sem. 1–45), validación (Sem. 46–53) y proyección futura (Sem. 54–57).
+        Selecciona un producto y haz clic sobre cualquiera de los <strong>9 modelos ordenados automáticamente del #1 al #9 según su menor MAPE en validación paso a paso (Sem. 46–53)</strong> para visualizar su curva ajustada y su proyección actualizada para diciembre (Sem. 54–57).
       </p>
       <div class="tab-bar">
         <button class="tab-btn active" onclick="selectModelProduct('pal', this)">🏆 Producto B: Paleta de Colores (9 modelos)</button>
@@ -392,17 +392,17 @@
         <div class="trend-viewer">
           <div class="trend-head">
             <div>
-              <h4 id="selectedModelTitle">Modelo #1: Fourier K = 2</h4>
-              <div id="selectedModelSub" class="trend-sub">Paleta de Colores · Modelo Adicional</div>
+              <h4 id="selectedModelTitle">Modelo #1</h4>
+              <div id="selectedModelSub" class="trend-sub">Paleta de Colores</div>
             </div>
             <span id="selectedModelBadge" class="pill pill-green">🏆 Puesto #1 · Más Efectivo</span>
           </div>
           <div class="trend-metrics">
-            <div class="tm-card accent"><span>Error MAPE</span><strong id="tmMape">10,44%</strong></div>
-            <div class="tm-card"><span>Error MAD</span><strong id="tmMad">8,24</strong></div>
-            <div class="tm-card"><span>Error MSE</span><strong id="tmMse">114,51</strong></div>
-            <div class="tm-card"><span>Sesgo ME</span><strong id="tmMe">+5,55</strong></div>
-            <div class="tm-card accent"><span>Pron. 4 Sem.</span><strong id="tmFore">82,5 pts</strong></div>
+            <div class="tm-card accent"><span>Error MAPE</span><strong id="tmMape">--</strong></div>
+            <div class="tm-card"><span>Error MAD</span><strong id="tmMad">--</strong></div>
+            <div class="tm-card"><span>Error MSE</span><strong id="tmMse">--</strong></div>
+            <div class="tm-card"><span>Sesgo ME</span><strong id="tmMe">--</strong></div>
+            <div class="tm-card accent"><span>Pron. 4 Sem.</span><strong id="tmFore">--</strong></div>
           </div>
           <div class="trend-chart-wrap"><canvas id="modelTrendCanvas"></canvas></div>
           <div id="selectedModelNote" class="trend-note"></div>
@@ -419,19 +419,19 @@
         <div class="sim-box">
           <strong>Producto A — Repelente</strong>
           <label>Pendiente Crecimiento (%)</label><input id="gA" type="number" step="0.1" value="-71.6">
-          <label>Error Pronóstico MAPE (%)</label><input id="eA" type="number" step="0.01" value="19.69">
+          <label>Error Pronóstico MAPE (%)</label><input id="eA" type="number" step="0.01" value="18.26">
           <label>Costo Unitario (USD)</label><input id="cA" type="number" step="0.01" value="3.05">
         </div>
         <div class="sim-box" style="border:2px solid var(--violet);">
           <strong>Producto B — Paleta de Colores</strong>
           <label>Pendiente Crecimiento (%)</label><input id="gB" type="number" step="0.1" value="6.5">
-          <label>Error Pronóstico MAPE (%)</label><input id="eB" type="number" step="0.01" value="10.44">
+          <label>Error Pronóstico MAPE (%)</label><input id="eB" type="number" step="0.01" value="10.91">
           <label>Costo Unitario (USD)</label><input id="cB" type="number" step="0.01" value="3.39">
         </div>
         <div class="sim-box">
           <strong>Producto C — Mini Humidificador</strong>
           <label>Pendiente Crecimiento (%)</label><input id="gC" type="number" step="0.1" value="5.0">
-          <label>Error Pronóstico MAPE (%)</label><input id="eC" type="number" step="0.01" value="17.67">
+          <label>Error Pronóstico MAPE (%)</label><input id="eC" type="number" step="0.01" value="18.60">
           <label>Costo Unitario (USD)</label><input id="cC" type="number" step="0.01" value="5.27">
         </div>
       </div>
@@ -450,7 +450,7 @@
       <div class="conc-grid">
         <div class="conc-card c-win">
           <h3 style="margin-top:0;">🏆 Paleta de Colores — Ganador Cuantitativo</h3>
-          <p style="font-size:0.88rem;color:var(--slate);">Lidera el simulador con crecimiento anual <strong>+6,5%</strong>, menor error de pronóstico (<strong>MAPE 10,44%</strong>), proveedor directo de <strong>11,99 años</strong> y costo competitivo (<strong>$3,39 USD</strong>). <em>Condición:</em> tramitar registro sanitario INVIMA (NSO) para venta formal.</p>
+          <p style="font-size:0.88rem;color:var(--slate);">Lidera el simulador con crecimiento anual <strong>+6,5%</strong>, menor error de pronóstico en Rolling Forecast (<strong>MAPE 10,91%</strong> con Holt Amortiguado), proveedor directo de <strong>11,99 años</strong> y costo competitivo (<strong>$3,39 USD</strong>). <em>Condición:</em> tramitar registro sanitario INVIMA (NSO) para venta formal.</p>
         </div>
         <div class="conc-card c-op">
           <h3 style="margin-top:0;">⚡ Mini Humidificador USB — Líder Operativo</h3>
@@ -472,14 +472,14 @@
             <div class="bi-sub">Panel Ejecutivo Business Intelligence · Producto Ganador del Estudio Cuantitativo</div>
           </div>
         </div>
-        <div class="bi-pill">🏆 #1 Viabilidad Cuantitativa · Score -3,51</div>
+        <div class="bi-pill">🏆 #1 Viabilidad Cuantitativa · Score -4,21</div>
       </div>
 
       <div class="bi-kpis">
         <div class="bi-kpi"><div class="bi-kpi-lbl">Precio AliExpress</div><div class="bi-kpi-num v">$14.258,55</div><div class="bi-kpi-note">COP (~$3,39 USD · Desc. 72,8%)</div></div>
-        <div class="bi-kpi"><div class="bi-kpi-lbl">Precisión Pronóstico</div><div class="bi-kpi-num e">10,44%</div><div class="bi-kpi-note">MAPE · Fourier K = 2</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Precisión Pronóstico</div><div class="bi-kpi-num e">10,91%</div><div class="bi-kpi-note">MAPE · Holt Amortiguado</div></div>
         <div class="bi-kpi"><div class="bi-kpi-lbl">Crecimiento Anual</div><div class="bi-kpi-num e">+6,5%</div><div class="bi-kpi-note">Pendiente positiva en Brasil</div></div>
-        <div class="bi-kpi"><div class="bi-kpi-lbl">Pronóstico 4 Semanas</div><div class="bi-kpi-num v">82,5 pts</div><div class="bi-kpi-note">Proyección dic. 2026</div></div>
+        <div class="bi-kpi"><div class="bi-kpi-lbl">Pronóstico 4 Semanas</div><div class="bi-kpi-num v">84,6 pts</div><div class="bi-kpi-note">Proyección dic. 2026</div></div>
         <div class="bi-kpi"><div class="bi-kpi-lbl">Aceptación Clientes</div><div class="bi-kpi-num a">4,5 ★</div><div class="bi-kpi-note">87,4% positivas (3.358 reseñas)</div></div>
         <div class="bi-kpi"><div class="bi-kpi-lbl">Respaldo Proveedor</div><div class="bi-kpi-num">11,99 años</div><div class="bi-kpi-note">Fabricante directo (Guangzhou)</div></div>
       </div>
@@ -579,20 +579,12 @@
       }, options: commonLineOpts
     });
 
-    function buildAllModelCurves(series) {
-      const trainEnd = 45;
-      let sumT = 0, sumY = 0, sumTT = 0, sumTY = 0;
-      for (let t = 0; t < trainEnd; t++) { sumT += t; sumY += series[t]; sumTT += t * t; sumTY += t * series[t]; }
-      const b1 = (trainEnd * sumTY - sumT * sumY) / (trainEnd * sumTT - sumT * sumT);
-      const b0 = (sumY - b1 * sumT) / trainEnd;
-      const lin = Array.from({ length: 57 }, (_, t) => +(b0 + b1 * t).toFixed(2));
-
-      const w = (2 * Math.PI) / 52;
-      const X = Array.from({ length: trainEnd }, (_, t) => [1, t, Math.sin(w * t), Math.cos(w * t), Math.sin(2 * w * t), Math.cos(2 * w * t)]);
-      const k = 6;
+    // Solucionador lineal (OLS) para Regresión Lineal y Fourier K=2
+    function fitOLS(X, y) {
+      const k = X[0].length;
       const XT = Array.from({ length: k }, (_, i) => X.map(r => r[i]));
       const XTX = Array.from({ length: k }, (_, i) => Array.from({ length: k }, (_, j) => XT[i].reduce((s, v, idx) => s + v * X[idx][j], 0)));
-      const XTy = Array.from({ length: k }, (_, i) => XT[i].reduce((s, v, idx) => s + v * series[idx], 0));
+      const XTy = Array.from({ length: k }, (_, i) => XT[i].reduce((s, v, idx) => s + v * y[idx], 0));
       const A = XTX.map((row, i) => [...row, XTy[i]]);
       for (let i = 0; i < k; i++) {
         let maxR = i;
@@ -609,107 +601,185 @@
         for (let j = i + 1; j < k; j++) s -= A[i][j] * beta[j];
         beta[i] = s / A[i][i];
       }
-      const fourier = Array.from({ length: 57 }, (_, t) => {
-        const f = [1, t, Math.sin(w * t), Math.cos(w * t), Math.sin(2 * w * t), Math.cos(2 * w * t)];
-        return +f.reduce((acc, v, idx) => acc + v * beta[idx], 0).toFixed(2);
-      });
+      return beta;
+    }
 
-      const naive = Array.from({ length: 57 }, (_, t) => t === 0 ? series[0] : (t <= trainEnd ? series[t - 1] : series[trainEnd - 1]));
+    // MOTOR ROLLING FORECAST:
+    // - Semanas 1–45 (índices 0..44): Entrenamiento
+    // - Semanas 46–53 (índices 45..52): Validación paso a paso (1-step-ahead con datos reales)
+    // - Semanas 54–57 (índices 53..56): Proyección futura actualizada con las 53 semanas reales
+    function buildAllModelCurves(series) {
+      const n = series.length; // 53
+      const trainEnd = 45;
 
+      // 1. Regresión Lineal (Rolling expanding window en 45..52 y ajuste total en 53..56)
+      function linParams(len) {
+        let sumT = 0, sumY = 0, sumTT = 0, sumTY = 0;
+        for (let t = 0; t < len; t++) { sumT += t; sumY += series[t]; sumTT += t * t; sumTY += t * series[t]; }
+        const b1 = (len * sumTY - sumT * sumY) / (len * sumTT - sumT * sumT);
+        const b0 = (sumY - b1 * sumT) / len;
+        return { b0, b1 };
+      }
+      const lin = [];
+      const pTrain = linParams(trainEnd);
+      for (let t = 0; t < trainEnd; t++) lin.push(+(pTrain.b0 + pTrain.b1 * t).toFixed(2));
+      for (let t = trainEnd; t < n; t++) {
+        const pRoll = linParams(t);
+        lin.push(+(pRoll.b0 + pRoll.b1 * t).toFixed(2));
+      }
+      const pAll = linParams(n);
+      for (let t = n; t < n + 4; t++) lin.push(+(pAll.b0 + pAll.b1 * t).toFixed(2));
+
+      // 2. Fourier K = 2 (Rolling expanding window en 45..52 y ajuste total en 53..56)
+      const w = (2 * Math.PI) / 52;
+      const fRow = t => [1, t, Math.sin(w * t), Math.cos(w * t), Math.sin(2 * w * t), Math.cos(2 * w * t)];
+      const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0);
+      const fourier = [];
+      const bFTrain = fitOLS(Array.from({ length: trainEnd }, (_, t) => fRow(t)), series.slice(0, trainEnd));
+      for (let t = 0; t < trainEnd; t++) fourier.push(+dot(fRow(t), bFTrain).toFixed(2));
+      for (let t = trainEnd; t < n; t++) {
+        const bFRoll = fitOLS(Array.from({ length: t }, (_, i) => fRow(i)), series.slice(0, t));
+        fourier.push(+dot(fRow(t), bFRoll).toFixed(2));
+      }
+      const bFAll = fitOLS(Array.from({ length: n }, (_, t) => fRow(t)), series);
+      for (let t = n; t < n + 4; t++) fourier.push(+dot(fRow(t), bFAll).toFixed(2));
+
+      // 3. Naïve (Rolling hasta Sem. 53; futuro repite último dato real Sem. 53)
+      const naive = Array.from({ length: n + 4 }, (_, t) => t === 0 ? series[0] : (t < n ? series[t - 1] : series[n - 1]));
+
+      // 4. Promedios Móviles n=3 y n=6 (Rolling con reales hasta Sem. 53; recursivo en Sem. 54–57)
       function movingAvg(win) {
         const out = [];
-        for (let t = 0; t < 57; t++) {
+        for (let t = 0; t < n + 4; t++) {
           if (t < win) out.push(series[t]);
-          else if (t <= trainEnd) out.push(+(series.slice(t - win, t).reduce((a, b) => a + b, 0) / win).toFixed(2));
-          else out.push(+(out.slice(t - win, t).reduce((a, b) => a + b, 0) / win).toFixed(2));
+          else if (t < n) out.push(+(series.slice(t - win, t).reduce((a, b) => a + b, 0) / win).toFixed(2));
+          else {
+            const hist = series.concat(out.slice(n));
+            out.push(+(hist.slice(t - win, t).reduce((a, b) => a + b, 0) / win).toFixed(2));
+          }
         }
         return out;
       }
       const pm3 = movingAvg(3);
       const pm6 = movingAvg(6);
 
+      // 5. SES (α = 0.35, Rolling hasta Sem. 53; futuro repite nivel actualizado tras Sem. 53)
       const ses = [series[0]];
-      for (let t = 1; t < 57; t++) ses.push(t <= trainEnd ? +(0.35 * series[t - 1] + 0.65 * ses[t - 1]).toFixed(2) : ses[trainEnd]);
+      for (let t = 1; t < n; t++) ses.push(+(0.35 * series[t - 1] + 0.65 * ses[t - 1]).toFixed(2));
+      const lastSes = +(0.35 * series[n - 1] + 0.65 * ses[n - 1]).toFixed(2);
+      for (let h = 0; h < 4; h++) ses.push(lastSes);
 
+      // 6. Holt Lineal y Holt Amortiguado (Rolling hasta Sem. 53; proyecta desde estado actualizado en Sem. 53)
       function holtFit(alpha, betaH, phi) {
         let l = series[0], b = series[1] - series[0];
         const out = [l];
-        for (let t = 1; t < 57; t++) {
-          if (t <= trainEnd) {
-            out.push(+(l + phi * b).toFixed(2));
-            const prevL = l;
-            l = alpha * series[t] + (1 - alpha) * (l + phi * b);
-            b = betaH * (l - prevL) + (1 - betaH) * phi * b;
-          } else {
-            const h = t - trainEnd;
-            let phiSum = 0;
-            for (let j = 1; j <= h; j++) phiSum += Math.pow(phi, j);
-            out.push(+(l + phiSum * b).toFixed(2));
-          }
+        for (let t = 1; t < n; t++) {
+          out.push(+(l + phi * b).toFixed(2));
+          const prevL = l;
+          l = alpha * series[t] + (1 - alpha) * (l + phi * b);
+          b = betaH * (l - prevL) + (1 - betaH) * phi * b;
+        }
+        for (let h = 1; h <= 4; h++) {
+          let phiSum = 0;
+          for (let j = 1; j <= h; j++) phiSum += Math.pow(phi, j);
+          out.push(+(l + phiSum * b).toFixed(2));
         }
         return out;
       }
       const holtLin = holtFit(0.32, 0.08, 1.0);
       const holtDamp = holtFit(0.35, 0.08, 0.85);
 
-      const arima = Array.from({ length: 57 }, (_, t) => {
-        if (t < 2) return series[t];
-        if (t <= trainEnd) return +(series[t - 1] + 0.35 * (series[t - 1] - series[t - 2])).toFixed(2);
-        const h = t - trainEnd;
-        const lastDiff = series[trainEnd - 1] - series[trainEnd - 2];
-        return +(series[trainEnd - 1] + lastDiff * 0.35 * ((1 - Math.pow(0.45, h)) / 0.55)).toFixed(2);
-      });
+      // 7. ARIMA(1,1,1) (Rolling hasta Sem. 53; proyecta desde Sem. 53)
+      const arima = [series[0], series[1]];
+      for (let t = 2; t < n; t++) arima.push(+(series[t - 1] + 0.35 * (series[t - 1] - series[t - 2])).toFixed(2));
+      const lastDiff = series[n - 1] - series[n - 2];
+      for (let h = 1; h <= 4; h++) {
+        arima.push(+(series[n - 1] + lastDiff * 0.35 * ((1 - Math.pow(0.45, h)) / 0.55)).toFixed(2));
+      }
 
       return { fourier, lin, holtDamp, arima, pm6, pm3, ses, naive, holtLin };
     }
 
-    const CURVES_PAL = buildAllModelCurves(BR_PAL);
-    const CURVES_HUM = buildAllModelCurves(BR_HUM);
-    const CURVES_REP = buildAllModelCurves(BR_REP);
+    // Cálculo automático de métricas en Validación (Sem. 46–53 = índices 45..52)
+    function computeMetrics(realSeries, curve) {
+      let sumMape = 0, sumMad = 0, sumMse = 0, sumMe = 0, count = 0;
+      for (let t = 45; t < 53; t++) {
+        const r = realSeries[t], f = curve[t];
+        const err = r - f;
+        sumMape += Math.abs(err / r) * 100;
+        sumMad += Math.abs(err);
+        sumMse += err * err;
+        sumMe += err;
+        count++;
+      }
+      const foreAvg = curve.slice(53, 57).reduce((a, b) => a + b, 0) / 4;
+      const fmt2 = v => v.toFixed(2).replace('.', ',');
+      const meVal = sumMe / count;
+      return {
+        mapeNum: +(sumMape / count).toFixed(2),
+        mape: fmt2(sumMape / count) + '%',
+        mad: fmt2(sumMad / count),
+        mse: fmt2(sumMse / count),
+        me: (meVal >= 0 ? '+' : '') + fmt2(meVal),
+        fore: foreAvg.toFixed(1).replace('.', ',') + ' pts'
+      };
+    }
+
+    function buildProductCatalog(productName, realSeries, color, notesMap) {
+      const curves = buildAllModelCurves(realSeries);
+      const defs = [
+        { key: 'fourier',  name: 'Fourier K = 2',             type: 'Modelo Adicional (Armónico)' },
+        { key: 'lin',      name: 'Regresión Lineal',          type: 'Modelo Base (Tendencia)' },
+        { key: 'holtDamp', name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)' },
+        { key: 'arima',    name: 'ARIMA(1,1,1)',              type: 'Modelo Adicional (Autoregresivo)' },
+        { key: 'pm6',      name: 'Promedio Móvil (n = 6)',    type: 'Modelo Base (Suavizado)' },
+        { key: 'pm3',      name: 'Promedio Móvil (n = 3)',    type: 'Modelo Base (Suavizado)' },
+        { key: 'ses',      name: 'SES (Suav. Exp. Simple)',   type: 'Modelo Base (Nivel)' },
+        { key: 'naive',    name: 'Naïve (Último Valor)',      type: 'Modelo Base (Referencia)' },
+        { key: 'holtLin',  name: 'Holt Lineal',               type: 'Modelo Base (Nivel + Tendencia)' }
+      ];
+      const models = defs.map(d => {
+        const curve = curves[d.key];
+        const met = computeMetrics(realSeries, curve);
+        return { ...d, ...met, curve, note: notesMap[d.key] };
+      }).sort((a, b) => a.mapeNum - b.mapeNum);
+      return { productName, realSeries, color, models };
+    }
 
     const MODELS_CATALOG = {
-      pal: {
-        productName: 'Paleta de Colores', realSeries: BR_PAL, color: '#7c3aed',
-        models: [
-          { name: 'Fourier K = 2', type: 'Modelo Adicional (Armónico)', mape: '10,44%', mad: '8,24', mse: '114,51', me: '+5,55', fore: '82,5 pts', curve: CURVES_PAL.fourier, note: 'Ganador absoluto del estudio: captura con alta precisión el ciclo estacional de maquillaje sin sobreajustar el ruido semanal.' },
-          { name: 'Regresión Lineal', type: 'Modelo Base (Tendencia)', mape: '11,82%', mad: '9,18', mse: '132,40', me: '+6,84', fore: '75,2 pts', curve: CURVES_PAL.lin, note: 'Confirma la pendiente positiva estructural (+6,5% anual), aunque subestima los repuntes de cierre de año.' },
-          { name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)', mape: '12,15%', mad: '9,45', mse: '141,10', me: '+7,10', fore: '74,8 pts', curve: CURVES_PAL.holtDamp, note: 'Modera la pendiente hacia el horizonte futuro evitando proyecciones explosivas.' },
-          { name: 'ARIMA(1,1,1)', type: 'Modelo Adicional (Autoregresivo)', mape: '12,40%', mad: '9,62', mse: '146,85', me: '+7,35', fore: '74,4 pts', curve: CURVES_PAL.arima, note: 'Modela bien la autocorrelación de corto plazo entre semanas consecutivas.' },
-          { name: 'Promedio Móvil (n = 6)', type: 'Modelo Base (Suavizado)', mape: '12,95%', mad: '10,08', mse: '158,20', me: '+8,42', fore: '69,3 pts', curve: CURVES_PAL.pm6, note: 'Suaviza las fluctuaciones semanales pero reacciona con rezago ante el repunte de noviembre.' },
-          { name: 'Promedio Móvil (n = 3)', type: 'Modelo Base (Suavizado)', mape: '13,60%', mad: '10,55', mse: '169,40', me: '+7,95', fore: '70,3 pts', curve: CURVES_PAL.pm3, note: 'Responde más rápido que PM(6) pero mantiene sesgo subestimador en temporada alta.' },
-          { name: 'SES (Suav. Exp. Simple)', type: 'Modelo Base (Nivel)', mape: '14,12%', mad: '10,94', mse: '182,15', me: '+8,88', fore: '69,8 pts', curve: CURVES_PAL.ses, note: 'Proyecta un nivel plano desde el cierre del entrenamiento; útil como referencia conservadora.' },
-          { name: 'Naïve (Último Valor)', type: 'Modelo Base (Referencia)', mape: '14,12%', mad: '10,95', mse: '183,00', me: '+4,88', fore: '74,0 pts', curve: CURVES_PAL.naive, note: 'Benchmark mínimo de comparación; cualquier modelo válido debe superar su error.' },
-          { name: 'Holt Lineal', type: 'Modelo Base (Nivel + Tendencia)', mape: '14,35%', mad: '11,12', mse: '188,60', me: '+6,20', fore: '76,1 pts', curve: CURVES_PAL.holtLin, note: 'Sensible al último tramo de entrenamiento antes del repunte de noviembre.' }
-        ]
-      },
-      hum: {
-        productName: 'Mini Humidificador USB', realSeries: BR_HUM, color: '#2563eb',
-        models: [
-          { name: 'ARIMA(1,1,1)', type: 'Modelo Adicional (Autoregresivo)', mape: '17,67%', mad: '9,85', mse: '164,30', me: '+3,12', fore: '53,7 pts', curve: CURVES_HUM.arima, note: 'Ganador del Mini Humidificador: absorbe mejor los cambios bruscos de nivel tras los picos estacionales.' },
-          { name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)', mape: '18,42%', mad: '10,25', mse: '175,80', me: '+2,85', fore: '54,9 pts', curve: CURVES_HUM.holtDamp, note: 'Segundo mejor ajuste; amortigua el impulso tras los picos de agosto y septiembre.' },
-          { name: 'SES (Suav. Exp. Simple)', type: 'Modelo Base (Nivel)', mape: '19,15%', mad: '10,68', mse: '189,40', me: '+1,90', fore: '55,4 pts', curve: CURVES_HUM.ses, note: 'Estabiliza la serie alrededor de su media histórica (~49–55 pts).' },
-          { name: 'Promedio Móvil (n = 6)', type: 'Modelo Base (Suavizado)', mape: '19,80%', mad: '11,05', mse: '201,15', me: '+1,45', fore: '56,0 pts', curve: CURVES_HUM.pm6, note: 'Filtra eficazmente los picos aislados pero aplana el repunte de cierre.' },
-          { name: 'Regresión Lineal', type: 'Modelo Base (Tendencia)', mape: '20,34%', mad: '11,38', mse: '212,60', me: '+2,40', fore: '52,8 pts', curve: CURVES_HUM.lin, note: 'Refleja una tendencia positiva moderada (+5,0% anual) a lo largo de las 53 semanas.' },
-          { name: 'Promedio Móvil (n = 3)', type: 'Modelo Base (Suavizado)', mape: '21,10%', mad: '11,82', mse: '226,40', me: '-1,80', fore: '58,0 pts', curve: CURVES_HUM.pm3, note: 'Arrastra el pico de la semana 45 hacia las primeras semanas de validación.' },
-          { name: 'Fourier K = 2', type: 'Modelo Adicional (Armónico)', mape: '21,85%', mad: '12,15', mse: '238,90', me: '+4,10', fore: '56,2 pts', curve: CURVES_HUM.fourier, note: 'Captura la onda semestral, aunque los picos climáticos del humidificador son menos periódicos.' },
-          { name: 'Holt Lineal', type: 'Modelo Base (Nivel + Tendencia)', mape: '22,40%', mad: '12,50', mse: '249,10', me: '-2,95', fore: '59,4 pts', curve: CURVES_HUM.holtLin, note: 'Tiende a sobreproyectar cuando el cierre de entrenamiento coincide con un pico.' },
-          { name: 'Naïve (Último Valor)', type: 'Modelo Base (Referencia)', mape: '23,15%', mad: '12,92', mse: '264,50', me: '-32,75', fore: '86,0 pts', curve: CURVES_HUM.naive, note: 'Queda anclado en el pico atípico de la semana 45 (86 pts), generando un sesgo elevado.' }
-        ]
-      },
-      rep: {
-        productName: 'Repelente Ultrasónico', realSeries: BR_REP, color: '#dc2626',
-        models: [
-          { name: 'Fourier K = 2', type: 'Modelo Adicional (Armónico)', mape: '19,69%', mad: '9,42', mse: '148,70', me: '+2,85', fore: '68,5 pts', curve: CURVES_REP.fourier, note: 'Mejor ajuste para el Repelente al capturar la estacionalidad de verano (dic–feb) frente al invierno.' },
-          { name: 'Holt Amortiguado (Damped)', type: 'Modelo Adicional (Suavizado)', mape: '21,40%', mad: '10,35', mse: '176,20', me: '+4,90', fore: '46,8 pts', curve: CURVES_REP.holtDamp, note: 'Controla la caída pronunciada evitando que el pronóstico se vaya a cero.' },
-          { name: 'ARIMA(1,1,1)', type: 'Modelo Adicional (Autoregresivo)', mape: '22,15%', mad: '10,72', mse: '188,45', me: '+5,60', fore: '48,2 pts', curve: CURVES_REP.arima, note: 'Sigue la inercia reciente pero tarda en anticipar el rebote de noviembre.' },
-          { name: 'Promedio Móvil (n = 3)', type: 'Modelo Base (Suavizado)', mape: '23,80%', mad: '11,55', mse: '215,30', me: '+7,40', fore: '43,0 pts', curve: CURVES_REP.pm3, note: 'Queda rezagado frente al cambio de estación en octubre–noviembre.' },
-          { name: 'Naïve (Último Valor)', type: 'Modelo Base (Referencia)', mape: '24,50%', mad: '11,90', mse: '229,10', me: '+0,88', fore: '49,0 pts', curve: CURVES_REP.naive, note: 'Mantiene constante el valor de la semana 45 (49 pts) sin capturar la recuperación final.' },
-          { name: 'SES (Suav. Exp. Simple)', type: 'Modelo Base (Nivel)', mape: '24,50%', mad: '11,92', mse: '230,05', me: '+6,85', fore: '42,6 pts', curve: CURVES_REP.ses, note: 'Promedia niveles bajos del invierno austral subestimando el cierre.' },
-          { name: 'Holt Lineal', type: 'Modelo Base (Nivel + Tendencia)', mape: '25,10%', mad: '12,24', mse: '242,80', me: '+6,10', fore: '45,5 pts', curve: CURVES_REP.holtLin, note: 'Inestable por los cambios de pendiente entre verano e invierno.' },
-          { name: 'Promedio Móvil (n = 6)', type: 'Modelo Base (Suavizado)', mape: '27,60%', mad: '13,48', mse: '286,40', me: '+9,85', fore: '39,8 pts', curve: CURVES_REP.pm6, note: 'Demasiado lento para una serie con alta volatilidad estacional (CV 36,65%).' },
-          { name: 'Regresión Lineal', type: 'Modelo Base (Tendencia)', mape: '38,90%', mad: '18,95', mse: '492,10', me: '+24,60', fore: '21,4 pts', curve: CURVES_REP.lin, note: 'Peor ajuste: arrastra la fuerte caída de enero a julio (-71,6% anual) y subestima el rebote final.' }
-        ]
-      }
+      pal: buildProductCatalog('Paleta de Colores', BR_PAL, '#7c3aed', {
+        holtDamp: 'Ganador en validación paso a paso: amortigua la pendiente para acompañar el repunte de noviembre sin sobreproyectar diciembre.',
+        holtLin: 'Segundo mejor desempeño; captura bien la tracción alcista reciente con sesgo moderado.',
+        ses: 'Muy estable gracias a la baja volatilidad de la serie (CV 16,37%), adaptando su nivel semana a semana.',
+        pm6: 'Filtra el ruido semanal y logra el menor MSE de la categoría, aunque reacciona con ligero rezago al pico de 100 pts.',
+        fourier: 'Captura la onda estacional de cierre de año, aunque penaliza ligeramente frente a suavizados adaptativos en validación paso a paso.',
+        pm3: 'Responde con rapidez al repunte de noviembre, elevando la proyección a 86,8 pts.',
+        lin: 'Confirma la tendencia estructural positiva (+6,5% anual), pero su rigidez lineal subestima los repuntes estacionales.',
+        naive: 'Benchmark mínimo de referencia; sigue la serie con un rezago exacto de una semana.',
+        arima: 'Al incorporar el diferencial semanal, amplifica los rebotes bruscos entre las semanas 50 y 52.'
+      }),
+      hum: buildProductCatalog('Mini Humidificador USB', BR_HUM, '#2563eb', {
+        lin: 'Ganador en Rolling Forecast para el Humidificador: al no sobre-reaccionar a los picos aislados, logra el menor MAPE (18,60%).',
+        pm3: 'Segundo lugar; suaviza los saltos semanales con un sesgo casi neutro (-0,67) y proyecta 61,0 pts.',
+        ses: 'Mantiene la estabilidad alrededor de la tendencia media incorporando cada dato real sin sobresaltos.',
+        holtDamp: 'Controla el impulso tras el pico de la semana 45 (86 pts) y estabiliza el cierre.',
+        pm6: 'Amortigua eficazmente la volatilidad climática (CV 33,49%), aunque llega con rezago al repunte final de 74 pts.',
+        holtLin: 'Sensible a los cambios bruscos de pendiente tras los picos estacionales.',
+        fourier: 'Los picos climáticos del humidificador son menos periódicos que los cosméticos, aumentando el error armónico.',
+        naive: 'Arrastra cada pico puntual hacia la semana siguiente, disparando el error absoluto.',
+        arima: 'La diferenciación semanal amplifica los saltos abruptos de la serie (como el paso de 53 a 74 pts).'
+      }),
+      rep: buildProductCatalog('Repelente Ultrasónico', BR_REP, '#dc2626', {
+        pm3: 'Ganador en Rolling Forecast para el Repelente: su ventana corta reacciona con agilidad al fuerte rebote de octubre–noviembre.',
+        holtLin: 'Segundo mejor ajuste; reajusta su pendiente al alza cuando la demanda real sube hacia los 70 pts.',
+        holtDamp: 'Acompaña el cambio de estación hacia el verano austral moderando el riesgo de sobreproyección.',
+        ses: 'Se adapta progresivamente a la recuperación de noviembre sin quedar congelado en el mínimo de invierno.',
+        pm6: 'Al usar 6 semanas de memoria, tarda más que PM(3) en absorber el cambio brusco de tendencia.',
+        fourier: 'Logra el menor MSE (117,38) y menor sesgo (+2,22) al modelar el ciclo anual verano–invierno en Brasil.',
+        naive: 'Sigue la subida de noviembre con una semana de retraso; sirve como línea base de comparación.',
+        arima: 'Sufre con los cambios abruptos de dirección entre semanas consecutivas en una serie de alta volatilidad (CV 36,65%).',
+        lin: 'Peor ajuste: la fuerte caída acumulada desde enero (-71,6% anual) impide que la recta se gire ante el rebote final.'
+      })
     };
 
     let currentProdKey = 'pal', currentModelIdx = 0, modelTrendChart;
@@ -752,7 +822,7 @@
       document.getElementById('tmMse').textContent = m.mse;
       document.getElementById('tmMe').textContent = m.me;
       document.getElementById('tmFore').textContent = m.fore;
-      document.getElementById('selectedModelNote').innerHTML = `<strong>Interpretación del ajuste:</strong> ${m.note}`;
+      document.getElementById('selectedModelNote').innerHTML = `<strong>Interpretación del ajuste (Rolling Forecast):</strong> ${m.note}`;
 
       const real57 = [...cat.realSeries, null, null, null, null];
       const fit53 = [...m.curve.slice(0, 53), null, null, null, null];
@@ -765,7 +835,7 @@
           labels: DATES_57,
           datasets: [
             { label: 'Demanda Real Brasil (Sem. 1–53)', data: real57, borderColor: '#0f172a', borderWidth: 2.3, pointRadius: 1.5, tension: 0.2 },
-            { label: `Curva ${m.name} (Entrenamiento + Validación)`, data: fit53, borderColor: cat.color, borderWidth: 2.5, pointRadius: 0, tension: 0.25 },
+            { label: `Curva ${m.name} (Rolling Forecast Sem. 1–53)`, data: fit53, borderColor: cat.color, borderWidth: 2.5, pointRadius: 0, tension: 0.25 },
             { label: 'Pronóstico Futuro (Sem. 54–57)', data: fore57, borderColor: '#059669', backgroundColor: '#059669', borderWidth: 2.8, borderDash: [6, 4], pointRadius: 4, tension: 0.2 }
           ]
         },
@@ -791,9 +861,9 @@
         <div style="font-size:0.88rem;color:#334e68;">1. <strong>${items[0].name}</strong>: ${items[0].score} pts &nbsp;|&nbsp; 2. <strong>${items[1].name}</strong>: ${items[1].score} pts &nbsp;|&nbsp; 3. <strong>${items[2].name}</strong>: ${items[2].score} pts</div>`;
     }
     function resetSimulator() {
-      document.getElementById('gA').value = -71.6; document.getElementById('eA').value = 19.69; document.getElementById('cA').value = 3.05;
-      document.getElementById('gB').value = 6.5;   document.getElementById('eB').value = 10.44; document.getElementById('cB').value = 3.39;
-      document.getElementById('gC').value = 5.0;   document.getElementById('eC').value = 17.67; document.getElementById('cC').value = 5.27;
+      document.getElementById('gA').value = -71.6; document.getElementById('eA').value = 18.26; document.getElementById('cA').value = 3.05;
+      document.getElementById('gB').value = 6.5;   document.getElementById('eB').value = 10.91; document.getElementById('cB').value = 3.39;
+      document.getElementById('gC').value = 5.0;   document.getElementById('eC').value = 18.60; document.getElementById('cC').value = 5.27;
       runSimulator();
     }
     runSimulator();
@@ -818,7 +888,7 @@
 
     new Chart(document.getElementById('biScoreChart'), {
       type: 'bar',
-      data: { labels: ['Paleta de Colores','Mini Humidificador','Repelente Ultrasónico'], datasets: [{ data: [-3.51,-17.82,-173.5], backgroundColor: ['#8b5cf6','#10b981','#ef4444'], borderRadius: 8 }] },
+      data: { labels: ['Paleta de Colores','Mini Humidificador','Repelente Ultrasónico'], datasets: [{ data: [-4.21,-19.22,-171.35], backgroundColor: ['#8b5cf6','#10b981','#ef4444'], borderRadius: 8 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#f1f5f9' }, grid: { display: false } }, y: { ticks: { color: '#cbd5e1' }, grid: { color: 'rgba(148,163,184,0.12)' } } } }
     });
 
